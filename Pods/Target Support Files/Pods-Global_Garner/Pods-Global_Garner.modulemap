@@ -1,0 +1,6 @@
+framework module Pods_Global_Garner {
+  umbrella header "Pods-Global_Garner-umbrella.h"
+
+  export *
+  module * { export * }
+}

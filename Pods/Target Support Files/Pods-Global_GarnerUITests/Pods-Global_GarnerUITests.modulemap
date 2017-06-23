@@ -1,0 +1,6 @@
+framework module Pods_Global_GarnerUITests {
+  umbrella header "Pods-Global_GarnerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
