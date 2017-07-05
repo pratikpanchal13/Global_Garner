@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--HomeVC-->
+        <scene sceneID="KE7-gl-aYH">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iEb-zO-cUG" customClass="HomeVC" customModule="Global_Garner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xUD-o5-NnP"/>
+                        <viewControllerLayoutGuide type="bottom" id="gkE-St-8ya"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7sa-Ng-lYZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhB-2m-X7R">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.45882352939999999" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ZdW-bR-Z1P"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gj-gq-Ggd">
+                                <rect key="frame" x="16" y="91" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="6Io-BQ-Rbe"/>
+                                    <constraint firstAttribute="height" constant="100" id="ZBA-pP-2Im"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="PlaceHolder"/>
+                                <connections>
+                                    <action selector="btnProfileClicked:" destination="iEb-zO-cUG" eventType="touchUpInside" id="QGD-u0-8J0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Gj-gq-Ggd" firstAttribute="top" secondItem="LhB-2m-X7R" secondAttribute="bottom" constant="27" id="9T9-2Q-LUA"/>
+                            <constraint firstItem="LhB-2m-X7R" firstAttribute="leading" secondItem="7sa-Ng-lYZ" secondAttribute="leading" id="ZnB-xE-jVl"/>
+                            <constraint firstAttribute="trailing" secondItem="LhB-2m-X7R" secondAttribute="trailing" id="a2z-QH-ZCW"/>
+                            <constraint firstItem="0Gj-gq-Ggd" firstAttribute="leading" secondItem="7sa-Ng-lYZ" secondAttribute="leading" constant="16" id="hgv-nA-YPk"/>
+                            <constraint firstItem="LhB-2m-X7R" firstAttribute="top" secondItem="7sa-Ng-lYZ" secondAttribute="top" id="zyi-z5-5RC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnProfile" destination="0Gj-gq-Ggd" id="hGc-Zy-Lz6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTu-OS-EBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="200.14992503748127"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="PlaceHolder" width="375" height="190"/>
+    </resources>
+</document>

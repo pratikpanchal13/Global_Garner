@@ -13,7 +13,9 @@ target 'Global_Garner' do
     
     # Pods for MBProgressHUD
     pod 'MBProgressHUD', '~> 1.0.0'
-
+    
+    pod 'SDWebImage', '~>3.8'
+    pod 'SwiftGifOrigin', '~> 1.6.1'
     
     
     target 'Global_GarnerTests' do

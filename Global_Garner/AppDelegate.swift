@@ -13,6 +13,8 @@ import MBProgressHUD
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var HUD:MBProgressHUD?
+    var navigationController:UINavigationController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -52,7 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func showActivityIndicator() -> Bool {
         //DispatchQueue.main.async {
         if Utility().isNetworkAvailable() == true {
-            MBProgressHUD.showAdded(to: (UIApplication.shared.delegate?.window!)! , animated: true)
+//            MBProgressHUD.showAdded(to: (UIApplication.shared.delegate?.window!)! , animated: true)
+            self.showLoadingHUD()
             return true
         }else
         {
@@ -64,13 +67,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func hideActivityIndicator() {
-        
-        
         // DispatchQueue.main.async {
         MBProgressHUD.hide(for: ((UIApplication.shared.delegate?.window)!)!, animated: true)
-        
         // }
     }
+    
+    func showLoadingHUD() {
+        
+        HUD?.hide(animated: true)
+        HUD = MBProgressHUD.showAdded(to: (UIApplication.shared.delegate?.window!)!, animated: true)
+        HUD?.bezelView.color = UIColor.clear // Your backgroundcolor
+        HUD?.bezelView.style = .solidColor
+        
+        let imageViewAnimatedGif = UIImageView()
+        imageViewAnimatedGif.loadGif(name: "LoadingNew@2x")
+        
+        let jeremyGif = UIImage.gif(name: "LoadingNew@2x")
+        
+        self.HUD?.customView = UIImageView(image: jeremyGif)
+        
+        
+        
+        HUD?.customView?.frame = CGRect(x: CGFloat((HUD?.customView?.frame.origin.x)!), y: CGFloat((HUD?.customView?.frame.origin.y)!), width: CGFloat((HUD?.customView?.frame.size.width)! + 100), height: CGFloat((HUD?.customView?.frame.size.height)! + 100))
+        HUD?.mode = .customView
+        self.navigationController?.view.addSubview(self.HUD!)
+        self.HUD?.show(animated: true)
+    }
+    
 
 
 }

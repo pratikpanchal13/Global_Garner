@@ -9,15 +9,22 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import MBProgressHUD
+import SDWebImage
+import SwiftGifOrigin
 
 
 
 class LoginVC: UIViewController {
     
+    //MARK:- Outlets
     @IBOutlet var txtPassword: UITextField!
     @IBOutlet var txtUserName: UITextField!
     
+    var objUserModel : UserModel?
+    var HUD:MBProgressHUD?
     
+    // MARK:- View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,47 +37,23 @@ class LoginVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    // MARK:- Button Actions
     @IBAction func btnLoginClicked(_ sender: Any) {
         self.checkAccessToken()
     }
     
-    func convertToDictionary(text: String) -> [String: Any]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        return nil
-    }
     
     func checkAccessToken() {
         
         Webservice().getOauthToken(txtUserName.text!, password: txtPassword.text!, success: { (_  responseData: Any) in
-            print("response is \(responseData)")
-            
-            
-            
+
             let dictData = responseData as! Dictionary<String,Any>
             
             UtilityUserDefault().setUDObject(ObjectToSave: (dictData["access_token"])! as AnyObject, KeyToSave: "access_token")
-
+            
             self.getLoginStatus()
-            
-            
             
         }) { (_ responseData:Any) in
             //
@@ -79,25 +62,18 @@ class LoginVC: UIViewController {
         }
 
     }
-    
+
     func getLoginStatus() {
         
         if  AppDelegate().appDelegate().showActivityIndicator() == true {
-            
+        
             let token =  UtilityUserDefault().getUDObject(KeyToReturnValye: "access_token") as! String
-            
-            let Auth_header    = ["Authorization":token]
-            
+            let Auth_header = ["Authorization":token]
             var dctPostData = Dictionary<String, String>()
             dctPostData["username"] = txtUserName.text!
             dctPostData["password"] = txtPassword.text!
             
             let aStrUrl = ACCOUNT_API + "user"
-            
-            //aParam["user_id"] = "139" //AppDelegate().appDelegate().loginModel?.data[0].usersId
-            print("param =\(aStrUrl)")
-            
-            
             
             Alamofire.request(aStrUrl, method: .post, parameters: dctPostData,headers:Auth_header)
                 .responseJSON { response in
@@ -107,13 +83,34 @@ class LoginVC: UIViewController {
                         if let error = response.result.error {
                             // got an error while deleting, need to handle it
                             print("error")
-                            AppDelegate().appDelegate().hideActivityIndicator()
+//                            AppDelegate().appDelegate().hideActivityIndicator()
                             
                             print(error)
                         } else {
                             print("Success")
                             AppDelegate().appDelegate().hideActivityIndicator()
-                            //                            success(json)
+
+                            
+                            //Model Sava Data
+//                            self.objUserModel = UserModel(object: json)
+//                            print("Model Data is \(String(describing: self.objUserModel))")
+//                            print("Model Data is \(String(describing: self.objUserModel?.body))")
+//                            print("Model Name is \(String(describing: "\((self.objUserModel?.body?.username)!)" ))")
+
+                            //Using Dictioanry
+                            if let dctMain = json as? NSDictionary { // Check 3
+                                print("Dictionary received")
+                                print("Model Data is \(String(describing: "\((dctMain["body"])!)"))")
+                                
+                                let dct = dctMain["body"] as! NSDictionary
+                                print("Model Data is \(String(describing: "\((dct["username"])!)"   ))")
+
+                            }
+                            
+                            let storyboard = UIStoryboard(storyboard: .Home)
+                            let homeVC: HomeVC = storyboard.instantiateViewController()
+                            self.navigationController?.pushViewController(homeVC, animated: true)
+
                     }
                 }
             }
@@ -121,3 +118,5 @@ class LoginVC: UIViewController {
     }
     
 }
+
+
