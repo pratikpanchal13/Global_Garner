@@ -90,7 +90,7 @@ class IntroductionPageVC: UIViewController ,UIScrollViewDelegate {
     
     @IBAction func btnLoginClicked(_ sender: Any) {
 
-        let storyboard = UIStoryboard(storyboard: .Login)
+        let storyboard = UIStoryboard(storyboard: .Registration)
         let loginVC: LoginVC = storyboard.instantiateViewController()
         self.navigationController?.pushViewController(loginVC, animated: true)
 

@@ -16,6 +16,8 @@ extension UIStoryboard {
     enum Storyboard: String {
         case Login
         case Home
+        case Registration
+        
         var filename: String {
             return rawValue.capitalized
         }

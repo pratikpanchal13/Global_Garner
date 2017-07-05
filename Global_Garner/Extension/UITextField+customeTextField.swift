@@ -1,6 +1,6 @@
 //
 //  UITextField+customeTextField.swift
-//  Jox Sports
+//  Global Garner
 //
 //  Created by Indianic on 04/04/17.
 //  Copyright © 2017 Indianic Infotech Pvt. Ltd. All rights reserved.

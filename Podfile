@@ -17,6 +17,7 @@ target 'Global_Garner' do
     pod 'SDWebImage', '~>3.8'
     pod 'SwiftGifOrigin', '~> 1.6.1'
     
+    pod 'Material', '~> 2.0'
     
     target 'Global_GarnerTests' do
         inherit! :search_paths

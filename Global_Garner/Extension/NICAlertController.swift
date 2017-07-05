@@ -1,9 +1,9 @@
 //
 //  NICAlertController.swift
-//  Kushal Panchal || Swift Classes
+//  Pratik Panchal || Swift Classes
 //
-//  Created by Kushal Panchal on 31/05/16.
-//  Copyright © 2016 Kushal Panchal (http://www.indianic.com). All rights reserved.
+//  Created by Pratik Panchal on 31/05/16.
+//  Copyright © 2016 Pratik Panchal (http://www.indianic.com). All rights reserved.
 //
 
 import Foundation

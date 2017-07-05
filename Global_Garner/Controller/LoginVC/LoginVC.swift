@@ -21,15 +21,21 @@ class LoginVC: UIViewController {
     @IBOutlet var txtPassword: UITextField!
     @IBOutlet var txtUserName: UITextField!
     
+    @IBOutlet var btnLogin: UIButton!
     var objUserModel : UserModel?
     var HUD:MBProgressHUD?
     
+    @IBOutlet var aViewLogin: UIView!
     // MARK:- View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtUserName.text = "vikasaroy"
-        txtPassword.text = "global916"
+        
+        self.setUpUI()
+        
+        
+        txtUserName.text = ""
+        txtPassword.text = ""
         // Do any additional setup after loading the view.
     }
     
@@ -38,6 +44,17 @@ class LoginVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func setUpUI(){
+        
+    aViewLogin.layer.cornerRadius = 3.0
+    aViewLogin.layer.borderWidth = 1.0
+    aViewLogin.layer.borderColor = UIColor(red: CGFloat((207.0 / 255.0)), green: CGFloat((207.0 / 255.0)), blue: CGFloat((207.0 / 255.0)), alpha: CGFloat(1)).cgColor
+    aViewLogin.layer.masksToBounds = true
+//    btnLogin.layer.cornerRadius = 3.0
+//    btnLogin.layer.borderWidth = 0.0
+//    btnLogin.layer.masksToBounds = true
+        
+    }
     
     // MARK:- Button Actions
     @IBAction func btnLoginClicked(_ sender: Any) {
@@ -51,7 +68,7 @@ class LoginVC: UIViewController {
 
             let dictData = responseData as! Dictionary<String,Any>
             
-            UtilityUserDefault().setUDObject(ObjectToSave: (dictData["access_token"])! as AnyObject, KeyToSave: "access_token")
+//            UtilityUserDefault().setUDObject(ObjectToSave: (dictData["access_token"])! as AnyObject, KeyToSave: "access_token")
             
             self.getLoginStatus()
             
@@ -92,24 +109,50 @@ class LoginVC: UIViewController {
 
                             
                             //Model Sava Data
-//                            self.objUserModel = UserModel(object: json)
+                            self.objUserModel = UserModel(object: json)
 //                            print("Model Data is \(String(describing: self.objUserModel))")
 //                            print("Model Data is \(String(describing: self.objUserModel?.body))")
 //                            print("Model Name is \(String(describing: "\((self.objUserModel?.body?.username)!)" ))")
-
-                            //Using Dictioanry
-                            if let dctMain = json as? NSDictionary { // Check 3
-                                print("Dictionary received")
-                                print("Model Data is \(String(describing: "\((dctMain["body"])!)"))")
-                                
-                                let dct = dctMain["body"] as! NSDictionary
-                                print("Model Data is \(String(describing: "\((dct["username"])!)"   ))")
-
-                            }
                             
-                            let storyboard = UIStoryboard(storyboard: .Home)
-                            let homeVC: HomeVC = storyboard.instantiateViewController()
-                            self.navigationController?.pushViewController(homeVC, animated: true)
+                            if( self.objUserModel?.status == true)
+                            {
+                                let storyboard = UIStoryboard(storyboard: .Home)
+                                let homeVC: HomeVC = storyboard.instantiateViewController()
+                                self.navigationController?.pushViewController(homeVC, animated: true)
+
+                            }else{
+
+                                print(self.objUserModel?.message!)
+                            }
+
+//                            //Using Dictioanry
+//                            if let dctMain = json as? NSDictionary { // Check 3
+//                                print("Dictionary received")
+//                                
+//                                let status:Int = dctMain["status"] as! Int
+//                                
+//                                if(status == 1)
+//                                {
+//                                    let dct = dctMain["body"] as! NSDictionary
+//                                    
+//                                    print("Model Data is \(String(describing: "\((dct["username"])!)"   ))")
+//                                    let storyboard = UIStoryboard(storyboard: .Home)
+//                                    let homeVC: HomeVC = storyboard.instantiateViewController()
+//                                    self.navigationController?.pushViewController(homeVC, animated: true)
+//                                }
+//                                else
+//                                {
+//                                    
+//                                }
+////                                print("Model Data is \(String(describing: "\((dctMain["body"])!)"))")
+//                                
+//                                
+//                               
+//                                
+//
+//                            }
+                            
+                            
 
                     }
                 }

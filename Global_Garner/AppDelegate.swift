@@ -78,9 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         HUD = MBProgressHUD.showAdded(to: (UIApplication.shared.delegate?.window!)!, animated: true)
         HUD?.bezelView.color = UIColor.clear // Your backgroundcolor
         HUD?.bezelView.style = .solidColor
-        
-        let imageViewAnimatedGif = UIImageView()
-        imageViewAnimatedGif.loadGif(name: "LoadingNew@2x")
+//        
+//        let imageViewAnimatedGif = UIImageView()
+//        imageViewAnimatedGif.loadGif(name: "LoadingNew@2x")
         
         let jeremyGif = UIImage.gif(name: "LoadingNew@2x")
         

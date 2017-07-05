@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.5.0)
+  - Material (2.6.3):
+    - Material/Core (= 2.6.3)
+  - Material/Core (2.6.3)
   - MBProgressHUD (1.0.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -9,6 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Material (~> 2.0)
   - MBProgressHUD (~> 1.0.0)
   - SDWebImage (~> 3.8)
   - SwiftGifOrigin (~> 1.6.1)
@@ -16,11 +20,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 70540a34959f98ed07ef02e241d0717842b6cbd2
+PODFILE CHECKSUM: af797f982f6b078644d21d06095334be79f24742
 
 COCOAPODS: 1.2.0
