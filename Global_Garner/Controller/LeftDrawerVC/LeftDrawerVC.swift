@@ -58,8 +58,22 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
         case 1:
             aIdentifire = "GGStatsVC"
             break
-        default:
+            
+        case 2:
+            aIdentifire = "GGWalletsVC"
+//                let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: aIdentifire)
+//                self.mm_drawerController.setCenterView(centerVC, withCloseAnimation: true, completion: nil)
             break
+        case 3:
+            aIdentifire = "GGStatsVC"
+//            let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: aIdentifire)
+//            self.mm_drawerController.setCenterView(centerVC, withCloseAnimation: true, completion: nil)
+            break
+        default:
+            self.navigationController?.popViewController(animated: true)
+            return
+            break
+            
         }
         
         

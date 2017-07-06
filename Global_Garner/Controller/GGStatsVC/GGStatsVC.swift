@@ -22,8 +22,9 @@ class GGStatsVC: UIViewController {
     }
     
     @IBAction func btnBackClicked(_ sender: Any) {
-
         self.navigationController?.popViewController(animated: true)
+
+//        self.mm_drawerController?.toggle(.left, animated: true, completion: nil)
 
     }
 
