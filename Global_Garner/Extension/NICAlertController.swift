@@ -31,7 +31,7 @@ extension UIAlertController
                          otherButtonArr : Array<String>?,
                          completion : ((Int, String) -> Void)?) -> Void {
         
-        let strTitle = "appName"
+        let strTitle = APP_NAME
         
         let alert = UIAlertController.init(title: strTitle, message: aStrMessage, preferredStyle: style)
         
@@ -107,7 +107,7 @@ extension UIAlertController
                          otherButtonArr : Array<String>?,
                          completion : ((Int, String) -> Void)?) -> Void {
         
-        let strTitle = "appName"
+        let strTitle = APP_NAME
   
         let alert = UIAlertController.init(title: strTitle, message: aStrMessage, preferredStyle: style)
         

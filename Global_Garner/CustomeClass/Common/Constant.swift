@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-
+let APP_NAME =  "Global Garner"
 let CLIENT_ID = "33UvsIdFbe2RKdZWeCOHfir/paf/t2/8kCrBuXhHacM="
 let CLIENT_SECRET = "Wl1IVn7UvzYm2zZWXN5xKpt6/5QAu1UxCaoVWZjgo74="
 
@@ -22,6 +22,7 @@ let ACCESS_TOKEN = "access_token"
 let REFRESH_TOKEN = "refresh_token"
 let TOKEN_TYPE = "token_type"
 let EXPIRES_IN = "expires_in"
+
 
 
 

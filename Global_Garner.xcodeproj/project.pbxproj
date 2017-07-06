@@ -22,6 +22,11 @@
 		A90029B41EFA786E00D50988 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B31EFA786E00D50988 /* Utility.swift */; };
 		A90029B81EFA7A5D00D50988 /* NICAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B61EFA7A5D00D50988 /* NICAlertController.swift */; };
 		A90029B91EFA7A5D00D50988 /* UITextField+customeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B71EFA7A5D00D50988 /* UITextField+customeTextField.swift */; };
+		A947A2D51F0E00F40073A431 /* LeftDrawerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2D41F0E00F40073A431 /* LeftDrawerVC.swift */; };
+		A947A2D71F0E010A0073A431 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A947A2D61F0E010A0073A431 /* SideMenu.storyboard */; };
+		A947A2D91F0E13CE0073A431 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */; };
+		A947A2DC1F0E15AA0073A431 /* GGStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2DB1F0E15AA0073A431 /* GGStatsVC.swift */; };
+		A947A2E81F0E18090073A431 /* GGWalletsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2E71F0E18090073A431 /* GGWalletsVC.swift */; };
 		A98DF4E51EFB95AC0037C063 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DF4E41EFB95AC0037C063 /* Constant.swift */; };
 		A98DF4E71EFBA4200037C063 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DF4E61EFBA4200037C063 /* Webservice.swift */; };
 		A9A0B9BF1F0CFF9B000E673F /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A0B9BE1F0CFF9B000E673F /* Registration.storyboard */; };
@@ -85,6 +90,11 @@
 		A90029B31EFA786E00D50988 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		A90029B61EFA7A5D00D50988 /* NICAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NICAlertController.swift; sourceTree = "<group>"; };
 		A90029B71EFA7A5D00D50988 /* UITextField+customeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+customeTextField.swift"; sourceTree = "<group>"; };
+		A947A2D41F0E00F40073A431 /* LeftDrawerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftDrawerVC.swift; sourceTree = "<group>"; };
+		A947A2D61F0E010A0073A431 /* SideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		A947A2DB1F0E15AA0073A431 /* GGStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGStatsVC.swift; sourceTree = "<group>"; };
+		A947A2E71F0E18090073A431 /* GGWalletsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGWalletsVC.swift; sourceTree = "<group>"; };
 		A98DF4E41EFB95AC0037C063 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A98DF4E61EFBA4200037C063 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		A9A0B9BE1F0CFF9B000E673F /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
@@ -206,6 +216,9 @@
 		A90029A61EFA723200D50988 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A947A2E61F0E17FE0073A431 /* GGWalletsVC */,
+				A947A2DA1F0E159D0073A431 /* GGStatsVC */,
+				A947A2D31F0E00CC0073A431 /* LeftDrawerVC */,
 				A9DDF2091F0CBAF600999D70 /* IntroductionPageVC */,
 				A9F656A61F0A20E70087C9C1 /* HomeVC */,
 				A90029AC1EFA726600D50988 /* LoginVC */,
@@ -265,6 +278,8 @@
 				A90029B01EFA734E00D50988 /* Login.storyboard */,
 				A9F656A91F0A21870087C9C1 /* Home.storyboard */,
 				A9A0B9BE1F0CFF9B000E673F /* Registration.storyboard */,
+				A947A2D61F0E010A0073A431 /* SideMenu.storyboard */,
+				A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -286,6 +301,30 @@
 				A90029B71EFA7A5D00D50988 /* UITextField+customeTextField.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A947A2D31F0E00CC0073A431 /* LeftDrawerVC */ = {
+			isa = PBXGroup;
+			children = (
+				A947A2D41F0E00F40073A431 /* LeftDrawerVC.swift */,
+			);
+			path = LeftDrawerVC;
+			sourceTree = "<group>";
+		};
+		A947A2DA1F0E159D0073A431 /* GGStatsVC */ = {
+			isa = PBXGroup;
+			children = (
+				A947A2DB1F0E15AA0073A431 /* GGStatsVC.swift */,
+			);
+			path = GGStatsVC;
+			sourceTree = "<group>";
+		};
+		A947A2E61F0E17FE0073A431 /* GGWalletsVC */ = {
+			isa = PBXGroup;
+			children = (
+				A947A2E71F0E18090073A431 /* GGWalletsVC.swift */,
+			);
+			path = GGWalletsVC;
 			sourceTree = "<group>";
 		};
 		A98DF4DF1EFB94460037C063 /* Common */ = {
@@ -519,9 +558,11 @@
 				A90029B11EFA734E00D50988 /* Login.storyboard in Resources */,
 				A9DDF2131F0CF53100999D70 /* OpenSans-ExtraBold.ttf in Resources */,
 				A9F656AA1F0A21870087C9C1 /* Home.storyboard in Resources */,
+				A947A2D91F0E13CE0073A431 /* Dashboard.storyboard in Resources */,
 				A9ECCE191F0BA07500AB1B1B /* loading@2x.gif in Resources */,
 				A90029831EFA713D00D50988 /* LaunchScreen.storyboard in Resources */,
 				A9DDF2141F0CF53100999D70 /* OpenSans-Light.ttf in Resources */,
+				A947A2D71F0E010A0073A431 /* SideMenu.storyboard in Resources */,
 				A9ECCE1A1F0BA07500AB1B1B /* loading@3x.gif in Resources */,
 				A90029801EFA713D00D50988 /* Assets.xcassets in Resources */,
 				A900297E1EFA713D00D50988 /* Main.storyboard in Resources */,
@@ -702,7 +743,10 @@
 				A9E562841EFD13340055CE05 /* UtilityUserDefault.swift in Sources */,
 				A90029B81EFA7A5D00D50988 /* NICAlertController.swift in Sources */,
 				A98DF4E51EFB95AC0037C063 /* Constant.swift in Sources */,
+				A947A2D51F0E00F40073A431 /* LeftDrawerVC.swift in Sources */,
 				A900297B1EFA713D00D50988 /* ViewController.swift in Sources */,
+				A947A2DC1F0E15AA0073A431 /* GGStatsVC.swift in Sources */,
+				A947A2E81F0E18090073A431 /* GGWalletsVC.swift in Sources */,
 				A9DDF20B1F0CBB0100999D70 /* IntroductionPageVC.swift in Sources */,
 				A90029791EFA713D00D50988 /* AppDelegate.swift in Sources */,
 				A9F656BF1F0A71730087C9C1 /* UserModel.swift in Sources */,

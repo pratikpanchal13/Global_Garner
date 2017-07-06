@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import MMDrawerController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var HUD:MBProgressHUD?
     var navigationController:UINavigationController?
 
+    var centerContainer:MMDrawerController?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+//        let side: UIStoryboard = UIStoryboard(name: "SideMenu", bundle: nil)
+//
+//        
+//        let centerViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as!HomeVC
+//        
+//        
+//        let drawerViewController = side.instantiateViewController(withIdentifier: "LeftDrawerVC") as! LeftDrawerVC
+//        
+//        let leftSideNav = UINavigationController(rootViewController: drawerViewController)
+//        let centerNav = UINavigationController(rootViewController: centerViewController)
+//        
+//        centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
+//        
+//        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
+//        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
+//        
+//        window!.rootViewController = centerContainer
+//        window!.makeKeyAndVisible()
+        
+        
+        
         // Override point for customization after application launch.
         return true
     }

@@ -21,6 +21,22 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         super.viewDidLoad()
         imagePicker.delegate = self
         
+        
+//        self.navigationController?.viewControllers = [self];
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+//        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+//        
+//        self.navigationController?.setViewControllers([viewController], animated: true)
+        
+        
+//        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+//        let todayViewController: TodaysFrequencyViewController = storyboard.instantiateViewControllerWithIdentifier("todaysFrequency") as! TodaysFrequencyViewController
+        
+//        self.navigationController?.setViewControllers([viewController], animated: true)
+        
+        
+//        UIApplication.shared.keyWindow?.rootViewController = viewController
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +44,19 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func btnSIdeMenuClicked(_ sender: Any) {
+//        [[APPDEL container] toggleLeftSideMenuCompletion:nil];
+
+//        AppDelegate().container?.toggleLeftSideMenuCompletion({ 
+//            
+//            AppDelegate().container?.shadow
+//            
+//        })
+        
+        self.mm_drawerController?.toggle(.left, animated: true, completion: nil)
+
+
+    }
     @IBAction func btnProfileClicked(_ sender: Any) {
         
         imagePicker.allowsEditing = true

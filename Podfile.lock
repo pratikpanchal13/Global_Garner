@@ -4,6 +4,18 @@ PODS:
     - Material/Core (= 2.6.3)
   - Material/Core (2.6.3)
   - MBProgressHUD (1.0.0)
+  - MMDrawerController (0.6.0):
+    - MMDrawerController/Core (= 0.6.0)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
+    - MMDrawerController/MMDrawerVisualStates (= 0.6.0)
+    - MMDrawerController/Subclass (= 0.6.0)
+  - MMDrawerController/Core (0.6.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.6.0):
+    - MMDrawerController/Core
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -14,6 +26,7 @@ DEPENDENCIES:
   - Alamofire
   - Material (~> 2.0)
   - MBProgressHUD (~> 1.0.0)
+  - MMDrawerController
   - SDWebImage (~> 3.8)
   - SwiftGifOrigin (~> 1.6.1)
   - SwiftyJSON
@@ -22,10 +35,11 @@ SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: af797f982f6b078644d21d06095334be79f24742
+PODFILE CHECKSUM: 53de99dc3ae80eac0418ec159c3053de44963cf4
 
 COCOAPODS: 1.2.0

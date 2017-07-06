@@ -12,6 +12,7 @@ import SwiftyJSON
 import MBProgressHUD
 import SDWebImage
 import SwiftGifOrigin
+import MMDrawerController
 
 
 
@@ -34,8 +35,8 @@ class LoginVC: UIViewController {
         self.setUpUI()
         
         
-        txtUserName.text = ""
-        txtPassword.text = ""
+        txtUserName.text = "vikasaroy"
+        txtPassword.text = "global916"
         // Do any additional setup after loading the view.
     }
     
@@ -43,16 +44,16 @@ class LoginVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func setUpUI(){
         
-    aViewLogin.layer.cornerRadius = 3.0
-    aViewLogin.layer.borderWidth = 1.0
-    aViewLogin.layer.borderColor = UIColor(red: CGFloat((207.0 / 255.0)), green: CGFloat((207.0 / 255.0)), blue: CGFloat((207.0 / 255.0)), alpha: CGFloat(1)).cgColor
-    aViewLogin.layer.masksToBounds = true
-//    btnLogin.layer.cornerRadius = 3.0
-//    btnLogin.layer.borderWidth = 0.0
-//    btnLogin.layer.masksToBounds = true
+        aViewLogin.layer.cornerRadius = 3.0
+        aViewLogin.layer.borderWidth = 1.0
+        aViewLogin.layer.borderColor = UIColor(red: CGFloat((207.0 / 255.0)), green: CGFloat((207.0 / 255.0)), blue: CGFloat((207.0 / 255.0)), alpha: CGFloat(1)).cgColor
+        aViewLogin.layer.masksToBounds = true
+        //    btnLogin.layer.cornerRadius = 3.0
+        //    btnLogin.layer.borderWidth = 0.0
+        //    btnLogin.layer.masksToBounds = true
         
     }
     
@@ -65,10 +66,10 @@ class LoginVC: UIViewController {
     func checkAccessToken() {
         
         Webservice().getOauthToken(txtUserName.text!, password: txtPassword.text!, success: { (_  responseData: Any) in
-
-            let dictData = responseData as! Dictionary<String,Any>
             
-//            UtilityUserDefault().setUDObject(ObjectToSave: (dictData["access_token"])! as AnyObject, KeyToSave: "access_token")
+            //            let dictData = responseData as! Dictionary<String,Any>
+            
+            //            UtilityUserDefault().setUDObject(ObjectToSave: (dictData["access_token"])! as AnyObject, KeyToSave: "access_token")
             
             self.getLoginStatus()
             
@@ -77,13 +78,49 @@ class LoginVC: UIViewController {
             print("error is \(responseData)")
             
         }
-
+        
     }
+    
+    
+    
+    //MARk: - Side Menu
+    func openSideMenu(){
+        
+        let storyboardHome = UIStoryboard(name: "Home", bundle: nil)
+        let storyboardSideMenu = UIStoryboard(name: "SideMenu", bundle: nil)
+        
+        let leftDrawer = storyboardSideMenu.instantiateViewController(withIdentifier: "LeftDrawerVC")
+        
+        let centerVC = storyboardHome.instantiateInitialViewController()
+        let drawerController = MMDrawerController.init(center: centerVC, leftDrawerViewController: leftDrawer)
+        
+        drawerController?.shouldStretchDrawer = true
+        drawerController?.openDrawerGestureModeMask = .init(rawValue: 2)
+        
+        drawerController?.setMaximumLeftDrawerWidth(300, animated: false, completion: nil)
+        drawerController?.restorationIdentifier = "MMDrawer"
+        drawerController?.closeDrawerGestureModeMask = .all
+        drawerController?.showsShadow = true
+    
+//        AppDelegate().window?.rootViewController = centerVC
+//        Awindow!.rootViewController = centerContainer
 
+//        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+//        var homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+//        let nav = UINavigationController(rootViewController: homeViewController)
+//        appdelegate.window!.rootViewController = nav
+//        
+        
+        self.navigationController?.pushViewController(drawerController!, animated: true)
+    }
+    
+    
+    
     func getLoginStatus() {
         
         if  AppDelegate().appDelegate().showActivityIndicator() == true {
-        
+            
             let token =  UtilityUserDefault().getUDObject(KeyToReturnValye: "access_token") as! String
             let Auth_header = ["Authorization":token]
             var dctPostData = Dictionary<String, String>()
@@ -100,62 +137,64 @@ class LoginVC: UIViewController {
                         if let error = response.result.error {
                             // got an error while deleting, need to handle it
                             print("error")
-//                            AppDelegate().appDelegate().hideActivityIndicator()
+                            //                            AppDelegate().appDelegate().hideActivityIndicator()
                             
                             print(error)
                         } else {
                             print("Success")
                             AppDelegate().appDelegate().hideActivityIndicator()
-
+                            
                             
                             //Model Sava Data
                             self.objUserModel = UserModel(object: json)
-//                            print("Model Data is \(String(describing: self.objUserModel))")
-//                            print("Model Data is \(String(describing: self.objUserModel?.body))")
-//                            print("Model Name is \(String(describing: "\((self.objUserModel?.body?.username)!)" ))")
+                            //                            print("Model Data is \(String(describing: self.objUserModel))")
+                            //                            print("Model Data is \(String(describing: self.objUserModel?.body))")
+                            //                            print("Model Name is \(String(describing: "\((self.objUserModel?.body?.username)!)" ))")
                             
                             if( self.objUserModel?.status == true)
                             {
-                                let storyboard = UIStoryboard(storyboard: .Home)
-                                let homeVC: HomeVC = storyboard.instantiateViewController()
-                                self.navigationController?.pushViewController(homeVC, animated: true)
-
+                                self.openSideMenu()
+                                //                                let storyboard = UIStoryboard(storyboard: .Home)
+                                //                                let homeVC: HomeVC = storyboard.instantiateViewController()
+                                //                                self.navigationController?.pushViewController(homeVC, animated: true)
+                                
                             }else{
-
-                                print(self.objUserModel?.message!)
+                                
+                                //                                print(self.objUserModel?.message!)
+                                UIAlertController.showAlertWithOkButton(self, aStrMessage: "\((self.objUserModel?.message)!)", completion: nil)
                             }
-
-//                            //Using Dictioanry
-//                            if let dctMain = json as? NSDictionary { // Check 3
-//                                print("Dictionary received")
-//                                
-//                                let status:Int = dctMain["status"] as! Int
-//                                
-//                                if(status == 1)
-//                                {
-//                                    let dct = dctMain["body"] as! NSDictionary
-//                                    
-//                                    print("Model Data is \(String(describing: "\((dct["username"])!)"   ))")
-//                                    let storyboard = UIStoryboard(storyboard: .Home)
-//                                    let homeVC: HomeVC = storyboard.instantiateViewController()
-//                                    self.navigationController?.pushViewController(homeVC, animated: true)
-//                                }
-//                                else
-//                                {
-//                                    
-//                                }
-////                                print("Model Data is \(String(describing: "\((dctMain["body"])!)"))")
-//                                
-//                                
-//                               
-//                                
-//
-//                            }
+                            
+                            //                            //Using Dictioanry
+                            //                            if let dctMain = json as? NSDictionary { // Check 3
+                            //                                print("Dictionary received")
+                            //
+                            //                                let status:Int = dctMain["status"] as! Int
+                            //
+                            //                                if(status == 1)
+                            //                                {
+                            //                                    let dct = dctMain["body"] as! NSDictionary
+                            //
+                            //                                    print("Model Data is \(String(describing: "\((dct["username"])!)"   ))")
+                            //                                    let storyboard = UIStoryboard(storyboard: .Home)
+                            //                                    let homeVC: HomeVC = storyboard.instantiateViewController()
+                            //                                    self.navigationController?.pushViewController(homeVC, animated: true)
+                            //                                }
+                            //                                else
+                            //                                {
+                            //                                    
+                            //                                }
+                            ////                                print("Model Data is \(String(describing: "\((dctMain["body"])!)"))")
+                            //                                
+                            //                                
+                            //                               
+                            //                                
+                            //
+                            //                            }
                             
                             
-
+                            
+                        }
                     }
-                }
             }
         }
     }

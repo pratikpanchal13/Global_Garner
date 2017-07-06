@@ -17,7 +17,7 @@ extension UIStoryboard {
         case Login
         case Home
         case Registration
-        
+        case SideMenu
         var filename: String {
             return rawValue.capitalized
         }
