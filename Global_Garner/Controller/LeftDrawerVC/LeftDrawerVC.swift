@@ -49,7 +49,7 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        var storyboardDashBoard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let storyboardDashBoard = UIStoryboard(name: "Dashboard", bundle: nil)
         var aIdentifire = ""
         switch indexPath.row {
         case 0:
@@ -62,18 +62,15 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
             break
         }
         
-        self.mm_drawerController?.closeDrawer(animated: false, completion: { (status) in
-            let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: aIdentifire)
-            self.mm_drawerController.centerViewController.navigationController?.pushViewController(centerVC, animated: false)
+        
+        let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: aIdentifire)
+        self.mm_drawerController.centerViewController.navigationController?.pushViewController(centerVC, animated: true)
+        
 
-        })
-        
-        
-//        self.mm_drawerController?.setCenterView(centerVC, withCloseAnimation: true, completion: nil)
-        
-        
-//        self.navigationController?.pushViewController(centerVC, animated: true)
-        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.mm_drawerController?.closeDrawer(animated: false, completion: nil)
+        }
+
     }
 
 }
