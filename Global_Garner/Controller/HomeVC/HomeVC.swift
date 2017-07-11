@@ -11,16 +11,26 @@ import UIKit
 class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
    
+    @IBOutlet var view1: UIView!
+    @IBOutlet var view2: UIView!
     // MARK: - OutLets
     @IBOutlet var btnProfile: UIButton!
     let imagePicker = UIImagePickerController()
     
+    @IBOutlet var txtdata: UITextField!
+    @IBOutlet var consHeight: NSLayoutConstraint!
     
    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         
+        self.txtdata.useUnderline(color: UIColor.colorFromCode(12   ), borderWidth: 10.0)
+        
+//        view2.isHidden = true
+
+        
+
         
 //        self.navigationController?.viewControllers = [self];
 //        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
@@ -98,6 +108,29 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion:nil)
+    }
+    @IBAction func btnLogout(_ sender: UIButton) {
+       
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            
+            let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
+            let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "ProfileVC")
+            self.mm_drawerController.centerViewController.navigationController?.pushViewController(centerVC, animated: true)
+
+            
+            view2.isHidden = true
+            print("Hiddle")
+            consHeight.constant = 0
+
+        }else{
+            view2.isHidden = false
+            print("Show")
+            consHeight.constant = 117
+
+        }
+        
+//        view2.layoutIfNeeded()
     }
 
  

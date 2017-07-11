@@ -67,9 +67,9 @@ class LoginVC: UIViewController {
         
         Webservice().getOauthToken(txtUserName.text!, password: txtPassword.text!, success: { (_  responseData: Any) in
             
-            //            let dictData = responseData as! Dictionary<String,Any>
+                        let dictData = responseData as! Dictionary<String,Any>
             
-            //            UtilityUserDefault().setUDObject(ObjectToSave: (dictData["access_token"])! as AnyObject, KeyToSave: "access_token")
+                        UtilityUserDefault().setUDObject(ObjectToSave: (dictData["access_token"])! as AnyObject, KeyToSave: "access_token")
             
             self.getLoginStatus()
             
