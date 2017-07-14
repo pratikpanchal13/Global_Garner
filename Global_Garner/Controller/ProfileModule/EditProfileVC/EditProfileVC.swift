@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class EditProfileVC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileVC: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate {
 
     
     // MARK: - Outlets
@@ -21,7 +21,18 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
     @IBOutlet var btnGendor: UIButton!
     @IBOutlet var txtPinCode: UITextField!
     
+    @IBOutlet var txtGender: UITextField!
+    @IBOutlet var txtDOB: UITextField!
     let imagePicker = UIImagePickerController()
+    
+    var dict : [String:String] = [:]
+    var dict1 = [String:String]()
+    
+    var pickerArray:[String] = ["Male", "Female"]
+    var getUserProfileDict: NSDictionary = NSDictionary()
+    
+    var dateOfBirth : Date?
+
 
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -32,16 +43,85 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
         self.imgProfile.clipsToBounds = true
 
         // Do any additional setup after loading the view.
+        // Call the printOutFriendNames with two parameters
+        printOutFriendNames(names: "Sergey", "Bill")
+        // Call the function with more parameters
+        printOutFriendNames(names: "Sergey", "Bill", "Max","test1","test2")
+        
     }
 
-
-
-    // MARK: - Button Action Event
-    @IBAction func btnDOBClicked(_ sender: Any) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {    //delegate method
+        
+        
+        switch textField.tag {
+        case 102:
+            Utility.sharedInstance.addPicker(self, onTextField: self.txtGender, typePicker: "", pickerArray: pickerArray, setMaxDate:true) { (picker,buttonindex,firstindex) in
+                
+                if (picker != nil)
+                {
+                    
+                    print("Index is \(firstindex)")
+                    
+                    print("picker Data \(self.pickerArray[firstindex])")
+                    self.txtGender.text = self.pickerArray[firstindex]
+                }
+                self.txtGender!.resignFirstResponder()
+            }
+            
+            break;
+            
+        default:
+            break
+        }
+        
+        
     }
     
-    @IBAction func btnGendorClicked(_ sender: Any) {
+    func printOutFriendNames(names: String...)  {
+        
+        for name in names {
+            
+            print(name)
+        }
+        
     }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.txtFirstName.text  = getUserProfileDict["fname"] as? String
+        self.txtLastName.text  = getUserProfileDict["lname"] as? String
+        self.txtPinCode.text  = getUserProfileDict["pincode"] as? String
+        self.txtGender.text  = getUserProfileDict["gender"] as? String
+        self.txtDOB.text  = getUserProfileDict["dob"] as? String
+        
+    }
+    
+    
+    @IBAction func btnBackClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    // MARK: - Button Action Event
+    @IBAction func btnDOBClicked(_ sender: Any) {
+        
+        
+    }
+    
+    @IBAction func btnGendorClicked(_ sender: UIButton) {
+        
+        Utility.sharedInstance.addPicker(self, onTextField: self.txtGender, typePicker: "", pickerArray: pickerArray, setMaxDate:true) { (picker,buttonindex,firstindex) in
+            
+            if (picker != nil)
+            {
+                
+                
+                print("picker Data \(self.pickerArray[firstindex])")
+                self.txtGender.text = self.pickerArray[firstindex]
+            }
+            self.txtGender.resignFirstResponder()
+        }
+    }
+    
     @IBAction func btnUpdateImageClicked(_ sender: Any) {
         imagePicker.allowsEditing = true
         imagePicker.isEditing = true
@@ -50,6 +130,11 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
     }
     @IBAction func btnEditProfileClicked(_ sender: Any) {
     }
+    
+    
+  
+
+    
 }
 
 // MARK: - ImagePicker Darasource & Delegate

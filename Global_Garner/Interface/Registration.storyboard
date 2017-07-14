@@ -347,7 +347,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="GGLogoBlue" width="136" height="136"/>
+        <image name="GGLogoBlue" width="85" height="85"/>
         <image name="ic_signup_close" width="14" height="14"/>
     </resources>
 </document>

@@ -33,6 +33,9 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         self.getUserProfileImage()
         
     }
+    @IBAction func btnBackClicked(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func btnEditClicked(_ sender: Any) {
         
@@ -42,7 +45,9 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 //        
 
         let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "EditProfileVC")
+        let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
+        
+        centerVC.getUserProfileDict = dictDatUserProfile
         self.navigationController?.pushViewController(centerVC, animated: true)
         
         

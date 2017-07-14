@@ -22,6 +22,7 @@
 		A90029B41EFA786E00D50988 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B31EFA786E00D50988 /* Utility.swift */; };
 		A90029B81EFA7A5D00D50988 /* NICAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B61EFA7A5D00D50988 /* NICAlertController.swift */; };
 		A90029B91EFA7A5D00D50988 /* UITextField+customeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B71EFA7A5D00D50988 /* UITextField+customeTextField.swift */; };
+		A928FA361F17500600133A2F /* UIImageExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928FA351F17500600133A2F /* UIImageExtention.swift */; };
 		A947A2D51F0E00F40073A431 /* LeftDrawerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2D41F0E00F40073A431 /* LeftDrawerVC.swift */; };
 		A947A2D71F0E010A0073A431 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A947A2D61F0E010A0073A431 /* SideMenu.storyboard */; };
 		A947A2D91F0E13CE0073A431 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */; };
@@ -98,6 +99,7 @@
 		A90029B31EFA786E00D50988 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		A90029B61EFA7A5D00D50988 /* NICAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NICAlertController.swift; sourceTree = "<group>"; };
 		A90029B71EFA7A5D00D50988 /* UITextField+customeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+customeTextField.swift"; sourceTree = "<group>"; };
+		A928FA351F17500600133A2F /* UIImageExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtention.swift; sourceTree = "<group>"; };
 		A947A2D41F0E00F40073A431 /* LeftDrawerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftDrawerVC.swift; sourceTree = "<group>"; };
 		A947A2D61F0E010A0073A431 /* SideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
@@ -314,11 +316,11 @@
 		A90029B51EFA7A5D00D50988 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				A9B487DF1F139C260042A502 /* UITextField */,
 				A9DDF1FF1F0CADDD00999D70 /* Storyboard */,
 				A90029B61EFA7A5D00D50988 /* NICAlertController.swift */,
 				A90029B71EFA7A5D00D50988 /* UITextField+customeTextField.swift */,
 				A9B487E21F13A07D0042A502 /* UIColor_customeColor.swift */,
+				A928FA351F17500600133A2F /* UIImageExtention.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -422,13 +424,6 @@
 				A98DF4E41EFB95AC0037C063 /* Constant.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		A9B487DF1F139C260042A502 /* UITextField */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UITextField;
 			sourceTree = "<group>";
 		};
 		A9DDF1FF1F0CADDD00999D70 /* Storyboard */ = {
@@ -847,6 +842,7 @@
 				A98DF4E51EFB95AC0037C063 /* Constant.swift in Sources */,
 				A947A2D51F0E00F40073A431 /* LeftDrawerVC.swift in Sources */,
 				A900297B1EFA713D00D50988 /* ViewController.swift in Sources */,
+				A928FA361F17500600133A2F /* UIImageExtention.swift in Sources */,
 				A947A2DC1F0E15AA0073A431 /* GGStatsVC.swift in Sources */,
 				A947A2E81F0E18090073A431 /* GGWalletsVC.swift in Sources */,
 				A9DDF20B1F0CBB0100999D70 /* IntroductionPageVC.swift in Sources */,

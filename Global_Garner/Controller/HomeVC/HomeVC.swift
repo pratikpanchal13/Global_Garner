@@ -15,7 +15,7 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     @IBOutlet var view2: UIView!
     // MARK: - OutLets
     @IBOutlet var btnProfile: UIButton!
-    let imagePicker = UIImagePickerController()
+    var imagePicker = UIImagePickerController()
     
     @IBOutlet var txtdata: UITextField!
     @IBOutlet var consHeight: NSLayoutConstraint!
@@ -69,13 +69,22 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     }
     @IBAction func btnProfileClicked(_ sender: Any) {
         
-        imagePicker.allowsEditing = true
-        imagePicker.isEditing = true
-        
-        
-        imagePicker.sourceType = .photoLibrary
-        
-        present(imagePicker, animated: true, completion: nil)
+//        imagePicker.allowsEditing = true
+//        imagePicker.isEditing = true
+//        imagePicker.sourceType = .photoLibrary
+//        present(imagePicker, animated: true, completion: nil)
+//        
+//        
+        //Dynamic
+        let frame = self.view.convert(self.view.frame, from: self.view.superview!)
+
+//        Utility.sharedInstance.imagePickerController(self, didFinishPickingMediaWithInfo: { (img) in
+//            if img != nil {
+////                imagePicker  = img
+//                self.btnProfile.setImage(img, for: .normal)
+//
+//            }
+//        })
 
     }
 
@@ -111,26 +120,9 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     }
     @IBAction func btnLogout(_ sender: UIButton) {
        
-        sender.isSelected = !sender.isSelected
-        if sender.isSelected {
-            
-            let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
-            let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "ProfileVC")
-            self.mm_drawerController.centerViewController.navigationController?.pushViewController(centerVC, animated: true)
-
-            
-            view2.isHidden = true
-            print("Hiddle")
-            consHeight.constant = 0
-
-        }else{
-            view2.isHidden = false
-            print("Show")
-            consHeight.constant = 117
-
-        }
-        
-//        view2.layoutIfNeeded()
+        let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
+        let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "ProfileVC")
+        self.mm_drawerController.centerViewController.navigationController?.pushViewController(centerVC, animated: true)
     }
 
  

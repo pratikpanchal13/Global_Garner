@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-let APP_NAME =  "Global Garner"
+
+public let APP_NAME =  Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
 let CLIENT_ID = "33UvsIdFbe2RKdZWeCOHfir/paf/t2/8kCrBuXhHacM="
 let CLIENT_SECRET = "Wl1IVn7UvzYm2zZWXN5xKpt6/5QAu1UxCaoVWZjgo74="
 
@@ -152,4 +153,10 @@ struct Constant {
         static let IS_IPAD              = UIDevice.current.userInterfaceIdiom == .pad && ScreenSize.SCREEN_MAX_LENGTH == 1024.0
         static let IS_IPAD_PRO          = UIDevice.current.userInterfaceIdiom == .pad && ScreenSize.SCREEN_MAX_LENGTH == 1366.0
     }
+    
+    // Date formatters
+    static let kDateFormat_DDMMYYYY = "dd/MM/yyyy"
+    static let kDateFormat_MMDDYYYY = "MM/dd/yyyy"
+    static let kDateFormat_YYYYMMDD = "yyyy-MM-dd"
+    static let kDateFormat_YYYYMMDD_HHMMSS = "yyyy-MM-dd HH:mm:ss"
 }
