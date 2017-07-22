@@ -212,7 +212,7 @@ public struct JSON {
     fileprivate var rawString: String = ""
     fileprivate var rawNumber: NSNumber = 0
     fileprivate var rawNull: NSNull = NSNull()
-    fileprivate var rawBool: Bool = false
+    public var rawBool: Bool = false
     /// Private type
     fileprivate var _type: Type = .null
     /// prviate error

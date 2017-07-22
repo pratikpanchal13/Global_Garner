@@ -14,7 +14,7 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     // MARK: - Outlets
     @IBOutlet var tblProfile: UITableView!
-    var dictDatUserProfile = NSDictionary()
+    var dictDatUserProfile = [String:Any]()
     var userImage:String = ""
     
     // MARK: - View Life Cycle
@@ -29,8 +29,12 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.APIGetUserProfile()
-        self.getUserProfileImage()
+        
+        
+        self.APIGetUserProfileDetails()     // API CALL User Details
+        
+        
+        self.getUserProfileImage()          //API Call GET Image
         
     }
     @IBAction func btnBackClicked(_ sender: Any) {
@@ -39,11 +43,11 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBAction func btnEditClicked(_ sender: Any) {
         
-//        let st:UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-//        let editProfileVC = st.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
-//        self.navigationController?.pushViewController(EditProfileVC, animated: true)
-//        
-
+        //        let st:UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+        //        let editProfileVC = st.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
+        //        self.navigationController?.pushViewController(EditProfileVC, animated: true)
+        //
+        
         let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
         let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
         
@@ -108,52 +112,35 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 extension ProfileVC
 {
     
-    func APIGetUserProfile()
+    func APIGetUserProfileDetails()
     {
         let token =  UtilityUserDefault().getUDObject(KeyToReturnValye: "access_token") as! String
         let Auth_header = ["Authorization":token,
                            "Content-Type": "application/json"]
         
-        print("Token-> \(token)")
-        //        let url = "https://accounts.globalgarner.in/api/users/9006"
+//        let PROFILE_API = "https://accounts.globalgarner.in/api/users/20895"
         
-        Alamofire.request(PROFILE_API, method: .get, parameters: nil, encoding: JSONEncoding(options: []), headers: Auth_header).responseJSON { (response) in
+        let userID = "\(String(describing: (Utility().getUserDefault(KeyToReturnValye: "user_id"))!))"
+
+
+        let url = BASE_API + "users/" + "\(userID)"
+        
+        Webservice.GET(url, param: nil, controller: self, header: Auth_header, callSilently: true, successBlock: { jsonResponse in
             
-            switch(response.result) {
-            case .success(_):
+            if jsonResponse["status"].boolValue == true{
                 
-                if let data = response.result.value{
-                    print(response.result.value)
-                    
-                    if let dctMain = data as? NSDictionary { // Check 3
-                        print("Dictionary received")
-                        
-                        let status:Bool = dctMain["status"] as! Bool
-                        
-                        if(status == true)
-                        {
-                            self.dictDatUserProfile = dctMain["body"] as! NSDictionary
-                            self.tblProfile.reloadData()
-                            
-                            print("Model Data is \(String(describing: "\((self.dictDatUserProfile["email"])!)"   ))")
-                            
-                        }
-                        else
-                        {
-                            print("No Data Found")
-                            
-                        }
-                        
-                    }
-                }
-                
-                break
-                
-            case .failure(_):
-                print(response.result.error)
-                break
-                
+                let dctData = jsonResponse["body"].dictionaryObject
+                self.dictDatUserProfile = dctData!
+                self.tblProfile.reloadData()
+            }else
+            {
+                print("No Data Found")
+
             }
+            
+        }) { (error, isTimeout) in
+            print("Error")
+            
         }
     }
     
@@ -161,51 +148,36 @@ extension ProfileVC
     func getUserProfileImage()
     {
         
-        let url = "https://accounts.globalgarner.in/api/user/get-avatar-url?sso_user_id=9006&size=170x170"
+        let userID = "\(String(describing: (Utility().getUserDefault(KeyToReturnValye: "user_id"))!))"
+//        let url = "https://accounts.globalgarner.in/api/user/get-avatar-url?sso_user_id=20895&size=170x170"
+        
+        let url = BASE_API + "user/" + "get-avatar-url?" + "sso_user_id=\(userID)&" + "size=170x170"
         
         let token =  UtilityUserDefault().getUDObject(KeyToReturnValye: "access_token") as! String
         let Auth_header = ["Authorization":token,
                            "Content-Type": "application/json"]
         
-        Alamofire.request(url, method: .post, parameters: nil, encoding: JSONEncoding(options: []), headers: Auth_header).responseJSON { (response) in
+        Webservice.POST(url, param: nil, controller: self, header: Auth_header, callSilently: true, successBlock: { responseJson in
             
-            
-            switch (response.result){
-                
-            case .success(_):
-                if let data = response.result.value
-                {
-                    if let dct = data as? NSDictionary { // Check 3
-                        
-                        print("Data is \(dct)")
-                        
-                        let status:Bool = dct["status"] as! Bool
-                        
-                        if(status == true)
-                        {
-                            self.userImage = dct["url"] as! String
-                            self.tblProfile.reloadData()
-                            
-                            print("Model Data is \(String(describing: "\((self.userImage))"   ))")
-                            
-                        }
-                        else
-                        {
-                            print("No Data Found")
-                            
-                        }
-                        
-                        
-                    }
-                }
-                break
-            case .failure(_):
-                break
+            if(responseJson["status"].boolValue == true)
+            {
+                self.userImage = responseJson["url"].string!
+                self.tblProfile.reloadData()
+                print("Model Data is \(String(describing: "\((self.userImage))"   ))")
                 
             }
+            else
+            {
+                print("No Data Found")
+                
+            }
+            
+        }) { (error, isTimeOut) in
+            print("Error")
         }
+        
     }
     
-
+    
 }
 

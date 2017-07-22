@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -44,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GG Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPU-dI-R2T">
-                                        <rect key="frame" x="150" y="26.5" width="76" height="22"/>
+                                        <rect key="frame" x="150" y="26" width="76" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -105,15 +106,39 @@
                                     <outlet property="delegate" destination="Tn1-Fs-Mj3" id="zmO-tB-x1X"/>
                                 </connections>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fte-6u-X3L">
+                                <rect key="frame" x="5" y="366" width="365" height="133.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGt-iv-fAI">
+                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="133.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZz-17-Ivg">
+                                        <rect key="frame" x="123.5" y="0.0" width="118" height="133.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7R-dH-8I9">
+                                        <rect key="frame" x="246.5" y="0.0" width="118.5" height="133.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HGt-iv-fAI" firstAttribute="leading" secondItem="fte-6u-X3L" secondAttribute="leading" id="Ro2-a1-qqq"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="fte-6u-X3L" firstAttribute="top" secondItem="jBy-eI-e1A" secondAttribute="bottom" constant="234" id="11Y-Bn-0rB"/>
                             <constraint firstItem="2OG-rf-XsH" firstAttribute="leading" secondItem="kXX-fE-GHZ" secondAttribute="leading" id="FZC-L8-Kn3"/>
+                            <constraint firstAttribute="trailing" secondItem="fte-6u-X3L" secondAttribute="trailing" constant="5" id="IlK-T9-EGR"/>
                             <constraint firstItem="2OG-rf-XsH" firstAttribute="top" secondItem="kXX-fE-GHZ" secondAttribute="top" id="JMl-PP-nyD"/>
                             <constraint firstAttribute="trailing" secondItem="2OG-rf-XsH" secondAttribute="trailing" id="eZK-KR-4Vt"/>
                             <constraint firstItem="jBy-eI-e1A" firstAttribute="top" secondItem="2OG-rf-XsH" secondAttribute="bottom" id="ntO-8P-IKT"/>
                             <constraint firstAttribute="trailing" secondItem="jBy-eI-e1A" secondAttribute="trailing" id="tuc-SB-8Mj"/>
                             <constraint firstItem="jBy-eI-e1A" firstAttribute="leading" secondItem="kXX-fE-GHZ" secondAttribute="leading" id="waX-dv-ziP"/>
+                            <constraint firstItem="fte-6u-X3L" firstAttribute="height" secondItem="kXX-fE-GHZ" secondAttribute="height" multiplier="0.2" id="z4g-v3-umJ"/>
+                            <constraint firstItem="fte-6u-X3L" firstAttribute="leading" secondItem="kXX-fE-GHZ" secondAttribute="leading" constant="5" id="zkW-Ys-leQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -122,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bY7-SQ-gi2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189.59999999999999" y="117.39130434782609"/>
+            <point key="canvasLocation" x="189.55078125" y="117.05710102489019"/>
         </scene>
         <!--StatsVC-->
         <scene sceneID="fpX-oa-09a">
@@ -153,7 +178,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GG Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3j-Xa-w2h">
-                                        <rect key="frame" x="150" y="26.5" width="76" height="22"/>
+                                        <rect key="frame" x="149.5" y="26" width="76" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>

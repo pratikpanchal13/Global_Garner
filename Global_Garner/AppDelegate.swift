@@ -80,7 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func showActivityIndicator() -> Bool {
         //DispatchQueue.main.async {
-        if Utility().isNetworkAvailable() == true {
+        if Webservice.isNetworkAvailable() == true {
 //            MBProgressHUD.showAdded(to: (UIApplication.shared.delegate?.window!)! , animated: true)
             self.showLoadingHUD()
             return true

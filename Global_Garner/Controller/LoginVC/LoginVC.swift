@@ -15,10 +15,11 @@ import SwiftGifOrigin
 import MMDrawerController
 
 
-
-class LoginVC: UIViewController {
+class LoginVC: UIViewController,UITextFieldDelegate {
     
+    //-------------------------------------------
     //MARK:- Outlets
+    //-------------------------------------------
     @IBOutlet var txtPassword: UITextField!
     @IBOutlet var txtUserName: UITextField!
     
@@ -27,25 +28,27 @@ class LoginVC: UIViewController {
     var HUD:MBProgressHUD?
     
     @IBOutlet var aViewLogin: UIView!
-    // MARK:- View Life Cycle
     
+    
+    //-------------------------------------------
+    // MARK:- View Life Cycle
+    //-------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setUpUI()
+        self.setUpUI()      // Set UI
         
-        
-        txtUserName.text = "vikasaroy"
-        txtPassword.text = "global916"
-        // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+  
+    //-------------------------------------------
+    // MARK:- Set UI
+    //-------------------------------------------
     func setUpUI(){
+
+//        txtUserName.text = "vikasaroy"
+//        txtPassword.text = "global916"
+
         
         aViewLogin.layer.cornerRadius = 3.0
         aViewLogin.layer.borderWidth = 1.0
@@ -57,33 +60,27 @@ class LoginVC: UIViewController {
         
     }
     
+    
+    //-------------------------------------------
     // MARK:- Button Actions
+    //-------------------------------------------
     @IBAction func btnLoginClicked(_ sender: Any) {
-        self.checkAccessToken()
-    }
-    
-    
-    func checkAccessToken() {
         
-        Webservice().getOauthToken(txtUserName.text!, password: txtPassword.text!, success: { (_  responseData: Any) in
-            
-                        let dictData = responseData as! Dictionary<String,Any>
-            
-                        UtilityUserDefault().setUDObject(ObjectToSave: (dictData["access_token"])! as AnyObject, KeyToSave: "access_token")
-            
-            self.getLoginStatus()
-            
-        }) { (_ responseData:Any) in
-            //
-            print("error is \(responseData)")
-            
+        guard let username = self.txtUserName.text , username != "" else{
+            UIAlertController.showAlertWithOkButton(self, aStrMessage: "Please Enter user name", completion: nil)
+            return
+        }
+        guard let passwors = self.txtPassword.text , passwors != "" else{
+            UIAlertController.showAlertWithOkButton(self, aStrMessage: "Please Enter password", completion: nil)
+            return
         }
         
+        self.checkAccessToken()  // API Calling for Login
     }
     
-    
-    
-    //MARk: - Side Menu
+    //-------------------------------------------
+    // MARK:- Function Open Side Menu
+    //-------------------------------------------
     func openSideMenu(){
         
         let storyboardHome = UIStoryboard(name: "Home", bundle: nil)
@@ -101,102 +98,88 @@ class LoginVC: UIViewController {
         drawerController?.restorationIdentifier = "MMDrawer"
         drawerController?.closeDrawerGestureModeMask = .all
         drawerController?.showsShadow = true
-    
-//        AppDelegate().window?.rootViewController = centerVC
-//        Awindow!.rootViewController = centerContainer
-
-//        let appdelegate = UIApplication.shared.delegate as! AppDelegate
-//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-//        var homeViewController = mainStoryboard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-//        let nav = UINavigationController(rootViewController: homeViewController)
-//        appdelegate.window!.rootViewController = nav
-//        
         
         self.navigationController?.pushViewController(drawerController!, animated: true)
     }
     
     
     
+    //-------------------------------------------
+    // MARK:- API Calling Check Access Token
+    //-------------------------------------------
+    func checkAccessToken() {
+        
+        var dctPostData = Dictionary<String, String>()
+        dctPostData["username"] = txtUserName.text
+        dctPostData["password"] = txtPassword.text
+        dctPostData["client_id"] = CLIENT_ID
+        dctPostData["client_secret"] = CLIENT_SECRET
+        dctPostData["grant_type"] = "password"
+        
+        Webservice.POST(AUTH_TOKEN_API, param: dctPostData, controller: self, header: nil, callSilently: true, successBlock: { responseJson in
+            
+            if (responseJson["error"].string != nil)
+            {
+                print("Error")
+                UIAlertController.showAlertWithOkButton(self, aStrMessage:"\(responseJson["error_description"])" , completion: nil)
+            }
+            else
+            {
+                UtilityUserDefault().setUDObject(ObjectToSave: "\(responseJson["access_token"])" as AnyObject, KeyToSave: "access_token")
+                self.getLoginStatus()
+            }
+        })
+        { (eror, isTimeOut) in
+            print("Error")
+        }
+    }
+
+    //-------------------------------------------
+    // MARK:- API Calling Login
+    //-------------------------------------------
     func getLoginStatus() {
         
-        if  AppDelegate().appDelegate().showActivityIndicator() == true {
-            
-            let token =  UtilityUserDefault().getUDObject(KeyToReturnValye: "access_token") as! String
-            let Auth_header = ["Authorization":token]
-            var dctPostData = Dictionary<String, String>()
-            dctPostData["username"] = txtUserName.text!
-            dctPostData["password"] = txtPassword.text!
-            
-            let aStrUrl = ACCOUNT_API + "user"
-            
-            Alamofire.request(aStrUrl, method: .post, parameters: dctPostData,headers:Auth_header)
-                .responseJSON { response in
-                    _ = response.flatMap { json in
-                        print("json =\(json)")
-                        
-                        if let error = response.result.error {
-                            // got an error while deleting, need to handle it
-                            print("error")
-                            //                            AppDelegate().appDelegate().hideActivityIndicator()
-                            
-                            print(error)
-                        } else {
-                            print("Success")
-                            AppDelegate().appDelegate().hideActivityIndicator()
-                            
-                            
-                            //Model Sava Data
-                            self.objUserModel = UserModel(object: json)
-                            //                            print("Model Data is \(String(describing: self.objUserModel))")
-                            //                            print("Model Data is \(String(describing: self.objUserModel?.body))")
-                            //                            print("Model Name is \(String(describing: "\((self.objUserModel?.body?.username)!)" ))")
-                            
-                            if( self.objUserModel?.status == true)
-                            {
-                                self.openSideMenu()
-                                //                                let storyboard = UIStoryboard(storyboard: .Home)
-                                //                                let homeVC: HomeVC = storyboard.instantiateViewController()
-                                //                                self.navigationController?.pushViewController(homeVC, animated: true)
-                                
-                            }else{
-                                
-                                //                                print(self.objUserModel?.message!)
-                                UIAlertController.showAlertWithOkButton(self, aStrMessage: "\((self.objUserModel?.message)!)", completion: nil)
-                            }
-                            
-                            //                            //Using Dictioanry
-                            //                            if let dctMain = json as? NSDictionary { // Check 3
-                            //                                print("Dictionary received")
-                            //
-                            //                                let status:Int = dctMain["status"] as! Int
-                            //
-                            //                                if(status == 1)
-                            //                                {
-                            //                                    let dct = dctMain["body"] as! NSDictionary
-                            //
-                            //                                    print("Model Data is \(String(describing: "\((dct["username"])!)"   ))")
-                            //                                    let storyboard = UIStoryboard(storyboard: .Home)
-                            //                                    let homeVC: HomeVC = storyboard.instantiateViewController()
-                            //                                    self.navigationController?.pushViewController(homeVC, animated: true)
-                            //                                }
-                            //                                else
-                            //                                {
-                            //                                    
-                            //                                }
-                            ////                                print("Model Data is \(String(describing: "\((dctMain["body"])!)"))")
-                            //                                
-                            //                                
-                            //                               
-                            //                                
-                            //
-                            //                            }
-                            
-                            
-                            
-                        }
-                    }
+        let aStrUrl = ACCOUNT_API + "user"
+        let token =  UtilityUserDefault().getUDObject(KeyToReturnValye: "access_token") as! String
+        let Auth_header = ["Authorization":token]
+        var dctPostData = Dictionary<String, String>()
+        dctPostData["username"] = txtUserName.text!
+        dctPostData["password"] = txtPassword.text!
+
+        Webservice.POST(aStrUrl, param: dctPostData, controller: self, header: Auth_header, successBlock: { response in
+
+            //            Model Sava Data
+            self.objUserModel = UserModel(json: response)
+//            print("Model Data is \(String(describing: self.objUserModel))")
+//            print("Model Data is \(String(describing: self.objUserModel?.body))")
+//            print("Model Name is \(String(describing: "\((self.objUserModel?.body?.username)!)" ))")
+
+            Utility().setUserDefault(ObjectToSave: self.objUserModel?.body?.userId as AnyObject, KeyToSave: "user_id")
+            if( self.objUserModel?.status == true)
+            {
+                self.openSideMenu()
+                
+
+            }else{
+                UIAlertController.showAlertWithOkButton(self, aStrMessage: "\((self.objUserModel?.message)!)", completion: nil)
             }
+        })
+        { (error, TimePot) in
+
+            print("Error")
+
         }
+
+    }
+    
+    
+    //-------------------------------------------
+    // MARK:- TextField Delegate
+    //-------------------------------------------
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
     }
     
 }

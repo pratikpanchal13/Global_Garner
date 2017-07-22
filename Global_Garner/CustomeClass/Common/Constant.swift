@@ -17,7 +17,9 @@ let CLIENT_SECRET = "Wl1IVn7UvzYm2zZWXN5xKpt6/5QAu1UxCaoVWZjgo74="
 let AUTH_TOKEN_API = "https://accounts.globalgarner.in/oauth/token"
 
 let ACCOUNT_API = "https://accounts.globalgarner.in/api/"
-let PROFILE_API = "https://accounts.globalgarner.in/api/users/9006"
+let PROFILE_API = "https://accounts.globalgarner.in/api/users/20895"
+
+let BASE_API = "https://accounts.globalgarner.in/api/"
 
 
 

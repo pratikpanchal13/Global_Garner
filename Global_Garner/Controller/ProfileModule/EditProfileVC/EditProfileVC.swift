@@ -29,7 +29,7 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
     var dict1 = [String:String]()
     
     var pickerArray:[String] = ["Male", "Female"]
-    var getUserProfileDict: NSDictionary = NSDictionary()
+    var getUserProfileDict =  [String:Any]()
     
     var dateOfBirth : Date?
 
@@ -191,8 +191,12 @@ extension EditProfileVC{
         let aUrlStr = "https://accounts.globalgarner.in/api/users/update-avatar"
         let aUrl = URL(string: aUrlStr)
         
+        
+        let userID = "\(String(describing: (Utility().getUserDefault(KeyToReturnValye: "user_id"))!))"
+
+        
         var aParameter = Dictionary<String, String>()
-        aParameter["sso_user_id"] = "9006"
+        aParameter["sso_user_id"] = "\(userID)" 
 
         Alamofire.upload(multipartFormData: { (multipartFormData) in
         

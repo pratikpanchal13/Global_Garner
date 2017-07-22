@@ -9,118 +9,45 @@
 import Foundation
 import Alamofire
 import UIKit
+import SwiftyJSON
+import SystemConfiguration
+import MBProgressHUD
 
 class Webservice {
     
     //    let webservice = Webservice()
     
-    
-    func getOauthToken(_ username: String, password: String, success: @escaping (_ responseData: Any) -> Void, failure: @escaping (_ responseData: Any) -> Void) {
+    //check internet utility
+    class func isNetworkAvailable() -> Bool {
         
-        if  AppDelegate().appDelegate().showActivityIndicator() == true {
-            
-            var dctPostData = Dictionary<String, String>()
-            dctPostData["username"] = username
-            dctPostData["password"] = password
-            dctPostData["client_id"] = CLIENT_ID
-            dctPostData["client_secret"] = CLIENT_SECRET
-            dctPostData["grant_type"] = "password"
-            
-            Alamofire.request(AUTH_TOKEN_API, method: .post, parameters: dctPostData).responseJSON { response in
-                    _ = response.flatMap { json in
-                        print("json =\(json)")
-                        
-                        switch response.result {
-                        case .success:
-                            print("Validation Successful")
-                            AppDelegate().appDelegate().hideActivityIndicator()
-                            let statusCode = (response.response?.statusCode) //Get HTTP status code
-                            
-                            
-                            let message : String
-                            if let httpStatusCode = response.response?.statusCode {
-                                switch(httpStatusCode) {
-                                case 400:
-                                    message = "Username or password not provided."
-                                    break;
-                                case 401:
-                                    message = "Incorrect password for user"
-                                    break;
-                                default :
-                                    break;
-                                }
-                                
-                            } else {
-//                                message = error.localizedDescription
-                            }
-                            success(json)
-                            
-                        case .failure(let error):
-                            print(error)
-                            
-                            let statusCode = (response.response?.statusCode) //Get HTTP status code
-                            
-                            
-                            let message : String
-                            if let httpStatusCode = response.response?.statusCode {
-                                switch(httpStatusCode) {
-                                case 400:
-                                    message = "Username or password not provided."
-                                    break;
-                                case 401:
-                                    message = "Incorrect password for user"
-                                    break;
-                                default :
-                                    break;
-                                }
-                                
-                            } else {
-                                message = error.localizedDescription
-                            }
-                            failure(error)
-
-                        }
-                        
-                        
-//                        let dictData = json as! Dictionary<String,Any>
-                        
-//                        if let error = response.result.error {
-//                            // got an error while deleting, need to handle it
-//                            print("error")
-//                            AppDelegate().appDelegate().hideActivityIndicator()
-//                            failure(error)
-//                            
-//                            print(error)
-//                        } else {
-//                            print("Success")
-////                            if (dictData[ACCESS_TOKEN] == nil) && (dictData[REFRESH_TOKEN] == nil)
-////                            {
-////                                UtilityUserDefault().setUDObject(ObjectToSave: (dictData["ACCESS_TOKEN"])! as AnyObject, KeyToSave: "ACCESS_TOKEN")
-////                                UtilityUserDefault().setUDObject(ObjectToSave: (dictData["REFRESH_TOKEN"])! as AnyObject, KeyToSave: "REFRESH_TOKEN")
-////                                UtilityUserDefault().setUDObject(ObjectToSave: (dictData["TOKEN_TYPE"])! as AnyObject, KeyToSave: "TOKEN_TYPE")
-////                                UtilityUserDefault().setUDObject(ObjectToSave: (dictData["EXPIRES_IN"])! as AnyObject, KeyToSave: "EXPIRES_IN")
-////                                
-////                                AppDelegate().appDelegate().hideActivityIndicator()
-////                            }else{
-////                                self.showSessionExpired()
-////                            }
-//                            AppDelegate().appDelegate().hideActivityIndicator()
-//                            success(json)
-//
-//                        }
-                    }
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout<sockaddr_in>.size)
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        guard let defaultRouteReachability = withUnsafePointer(to: &zeroAddress, {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {
+                SCNetworkReachabilityCreateWithAddress(nil, $0)
             }
-            
+        }) else {
+            return false
         }
         
+        var flags: SCNetworkReachabilityFlags = []
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags) {
+            return false
+        }
         
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        
+        return (isReachable && !needsConnection)
     }
     
     
     // MARK: - Authorization Token
     func showSessionExpired() {
         
-//        UIAlertController.showAlertWithOkButton(self, aStrMessage: "Session Expired", completion: nil)
+        //        UIAlertController.showAlertWithOkButton(self, aStrMessage: "Session Expired", completion: nil)
         self.logOutFromApp()
     }
     
@@ -163,6 +90,157 @@ class Webservice {
         
     }
     
+    
+    
+}
+
+extension Webservice{
+    
+    
+    //-------------------------------------------------
+    //MARK :- API Call POST
+    //-------------------------------------------------
+    class func POST(_ url: String,
+                    param: [String: Any]?,
+                    controller: UIViewController,
+                    header : [String: String]?,
+                    callSilently : Bool = false,
+                    successBlock: @escaping (_ response: JSON) -> Void,
+                    failureBlock: @escaping (_ error: Error? , _ isTimeOut: Bool) -> Void) {
+        
+        // Internet is connected
+        if isNetworkAvailable() {
+        
+            if !callSilently {
+                MBProgressHUD.showAdded(to: (UIApplication.shared.delegate?.window!)! , animated: true)
+            }
+            
+            Alamofire.request(url, method: .post, parameters: param, encoding: JSONEncoding(options: []), headers: header).responseJSON(completionHandler: { (response) in
+                
+                if !callSilently{
+                    DispatchQueue.main.async {
+                        MBProgressHUD.hide(for: ((UIApplication.shared.delegate?.window)!)!, animated: true)
+                    }
+                }
+                
+                print("---- POST REQUEST URL RESPONSE : \(url)\n\(response.result)")
+                print(response.timeline)
+                
+                switch response.result {
+                case .success:
+                    
+                    if let aJSON = response.result.value {
+                        
+                        let json = JSON(aJSON)
+                        print("---- POST SUCCESS RESPONSE : \(json)")
+                        successBlock(json)
+                        
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                    if (error as NSError).code == -1001 {
+                        // The request timed out error occured. // Code=-1001 "The request timed out."
+                        UIAlertController.showAlertWithOkButton(controller, aStrMessage: "The request timed out. Pelase try after again.", completion: nil)
+                        failureBlock(error, true)
+                    } else {
+                        UIAlertController.showAlertWithOkButton(controller, aStrMessage: "Somthin went Wrong", completion: nil)
+                        failureBlock(error, false)
+                    }
+                    break
+                }
+                
+            })
+            
+        }
+        else{
+            // Internet is not connected
+            UIAlertController.showAlertWithOkButton(controller, aStrMessage: "Internet is not available", completion: nil)
+            let aErrorConnection = NSError(domain: "InternetNotAvailable", code: 0456, userInfo: nil)
+            failureBlock(aErrorConnection as Error , false)
+        }
+    }
+    
+    
+    
+    //-------------------------------------------------
+    //MARK :- API Call GET
+    //-------------------------------------------------
+    class func GET(_ url: String,
+                    param: [String: Any]?,
+                    controller: UIViewController,
+                    header : [String: String]?,
+                    callSilently : Bool = false,
+                    successBlock: @escaping (_ response: JSON) -> Void,
+                    failureBlock: @escaping (_ error: Error? , _ isTimeOut: Bool) -> Void) {
+        
+        // Internet is connected
+        if isNetworkAvailable() {
+            
+            if !callSilently {
+                MBProgressHUD.showAdded(to: (UIApplication.shared.delegate?.window!)! , animated: true)
+            }
+            
+            Alamofire.request(url, method: .get, parameters: param, encoding: JSONEncoding(options: []), headers: header).responseJSON(completionHandler: { (response) in
+                
+                
+                if !callSilently{
+                    DispatchQueue.main.async {
+                        MBProgressHUD.hide(for: ((UIApplication.shared.delegate?.window)!)!, animated: true)
+                    }
+                }
+                
+                print("---- GET REQUEST URL RESPONSE : \(url)\n\(response.result)")
+                print(response.timeline)
+                
+                switch response.result {
+                case .success:
+
+                    if !callSilently{
+                        DispatchQueue.main.async {
+                            MBProgressHUD.hide(for: ((UIApplication.shared.delegate?.window)!)!, animated: true)
+                        }
+                    }
+                    
+                    if let aJSON = response.result.value {
+                        
+                        let json = JSON(aJSON)
+                        print("---- GET SUCCESS RESPONSE : \(json)")
+                        successBlock(json)
+                        
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                    
+                    if !callSilently{
+                        DispatchQueue.main.async {
+                            MBProgressHUD.hide(for: ((UIApplication.shared.delegate?.window)!)!, animated: true)
+                        }
+                    }
+                    
+                    if (error as NSError).code == -1001 {
+                        // The request timed out error occured. // Code=-1001 "The request timed out."
+                        UIAlertController.showAlertWithOkButton(controller, aStrMessage: "The request timed out. Pelase try after again.", completion: nil)
+                        failureBlock(error, true)
+                    } else {
+                        UIAlertController.showAlertWithOkButton(controller, aStrMessage: "Somthin went Wrong", completion: nil)
+                        failureBlock(error, false)
+                    }
+                    break
+                }
+                
+            })
+            
+        }
+        else{
+            // Internet is not connected
+            UIAlertController.showAlertWithOkButton(controller, aStrMessage: "Internet is not available", completion: nil)
+            let aErrorConnection = NSError(domain: "InternetNotAvailable", code: 0456, userInfo: nil)
+            failureBlock(aErrorConnection as Error , false)
+        }
+    }
+
     
     
 }
