@@ -46,8 +46,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     //-------------------------------------------
     func setUpUI(){
 
-//        txtUserName.text = "vikasaroy"
-//        txtPassword.text = "global916"
+        txtUserName.text = "pratik13"
+        txtPassword.text = "global916"
 
         
         aViewLogin.layer.cornerRadius = 3.0
@@ -83,7 +83,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     //-------------------------------------------
     func openSideMenu(){
         
-        let storyboardHome = UIStoryboard(name: "Home", bundle: nil)
+        let storyboardHome = UIStoryboard(name: "Dashboard", bundle: nil)
         let storyboardSideMenu = UIStoryboard(name: "SideMenu", bundle: nil)
         
         let leftDrawer = storyboardSideMenu.instantiateViewController(withIdentifier: "LeftDrawerVC")
@@ -94,7 +94,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         drawerController?.shouldStretchDrawer = true
         drawerController?.openDrawerGestureModeMask = .init(rawValue: 2)
         
-        drawerController?.setMaximumLeftDrawerWidth(300, animated: false, completion: nil)
+        drawerController?.setMaximumLeftDrawerWidth((Constant.ScreenSize.SCREEN_WIDTH * 0.9), animated: false, completion: nil)
         drawerController?.restorationIdentifier = "MMDrawer"
         drawerController?.closeDrawerGestureModeMask = .all
         drawerController?.showsShadow = true
@@ -150,11 +150,15 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 
             //            Model Sava Data
             self.objUserModel = UserModel(json: response)
+            AppDelegate().appDelegate().userModel = UserModel(json: response)
+            
 //            print("Model Data is \(String(describing: self.objUserModel))")
 //            print("Model Data is \(String(describing: self.objUserModel?.body))")
 //            print("Model Name is \(String(describing: "\((self.objUserModel?.body?.username)!)" ))")
 
             Utility().setUserDefault(ObjectToSave: self.objUserModel?.body?.userId as AnyObject, KeyToSave: "user_id")
+            Utility().setUserDefault(ObjectToSave: self.objUserModel?.body?.username as AnyObject, KeyToSave: "user_name")
+            
             if( self.objUserModel?.status == true)
             {
                 self.openSideMenu()

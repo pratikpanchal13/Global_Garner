@@ -50,7 +50,7 @@ class ProfileVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
         let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
-        
+        centerVC.userImage = self.userImage
         centerVC.getUserProfileDict = dictDatUserProfile
         self.navigationController?.pushViewController(centerVC, animated: true)
         

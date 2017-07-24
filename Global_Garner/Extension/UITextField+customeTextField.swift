@@ -9,17 +9,42 @@
 import UIKit
 
 extension UITextField {
-
+    
+    //-----------------------------------------------
+    //MARK:- Left Padding
+    //-----------------------------------------------
+    func setLeftPaddingPoints(_ amount:CGFloat){
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+    }
+    
+    //-----------------------------------------------
+    //MARK:- Right Padding
+    //-----------------------------------------------
+    func setRightPaddingPoints(_ amount:CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
+    
+    
+    //-----------------------------------------------
+    //MARK:- Under Line
+    //-----------------------------------------------
     func useUnderline(color:UIColor ,borderWidth : CGFloat) {
         let border = CALayer()
-//        let borderWidth = CGFloat(1.0)
+        //        let borderWidth = CGFloat(1.0)
         border.borderColor = color.cgColor
         border.frame = CGRect(origin: CGPoint(x: 0,y :self.frame.size.height - borderWidth), size: CGSize(width: self.frame.size.width, height: self.frame.size.height))
         border.borderWidth = borderWidth
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }
-
+    
+    //-----------------------------------------------
+    //MARK:- Validation
+    //-----------------------------------------------
     func isTextFieldBlank() -> Bool {
         let strText = self.text
         if self.isEmptyString(strText!) {
@@ -78,6 +103,6 @@ extension UITextField {
         self.becomeFirstResponder()
         return false
     }
-
-
+    
+    
 }

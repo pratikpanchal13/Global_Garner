@@ -30,6 +30,7 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
     
     var pickerArray:[String] = ["Male", "Female"]
     var getUserProfileDict =  [String:Any]()
+    var userImage:String = ""
     
     var dateOfBirth : Date?
 
@@ -95,6 +96,9 @@ class EditProfileVC: UIViewController,UIImagePickerControllerDelegate, UINavigat
         self.txtGender.text  = getUserProfileDict["gender"] as? String
         self.txtDOB.text  = getUserProfileDict["dob"] as? String
         
+        
+        imgProfile.sd_setImage(with: URL(string:self.userImage), placeholderImage:UIImage(named: "PlaceHolder"))
+
     }
     
     

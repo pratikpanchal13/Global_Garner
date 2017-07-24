@@ -122,7 +122,6 @@ class Utility: NSObject ,UIPickerViewDelegate,UIPickerViewDataSource, UIImagePic
     
     func pickerDone()
     {
-        print(pickerBlock)
         if pickerType == "Date" {
             
             pickerBlock!(datePicker!,1,0)
@@ -209,8 +208,8 @@ class Utility: NSObject ,UIPickerViewDelegate,UIPickerViewDataSource, UIImagePic
         let date1 = dateFormatter.date(from: receivedDate as String) as NSDate!
         let date2 = dateFormatter.date(from: timeStamp) as NSDate!
         
-        let date11 = date1 as! Date
-        let date22 = date2 as! Date
+        let date11 = date1! as Date
+        let date22 = date2! as Date
         
         var flags = Set<Calendar.Component>([.year])
         var components = calendar.dateComponents(flags, from: date11, to: date22)
@@ -281,8 +280,8 @@ class Utility: NSObject ,UIPickerViewDelegate,UIPickerViewDataSource, UIImagePic
         let date1 = dateFormatter.date(from: receivedDate as String) as NSDate!
         let date2 = dateFormatter.date(from: timeStamp) as NSDate!
         
-        let date11 = date1 as! Date
-        let date22 = date2 as! Date
+        let date11 = date1! as Date
+        let date22 = date2! as Date
         
         var flags = Set<Calendar.Component>([.year])
         var components = calendar.dateComponents(flags, from: date11, to: date22)
@@ -352,8 +351,8 @@ class Utility: NSObject ,UIPickerViewDelegate,UIPickerViewDataSource, UIImagePic
         let date1 = dateFormatter.date(from: receivedDate as String) as NSDate!
         let date2 = dateFormatter.date(from: timeStamp) as NSDate!
         
-        let date11 = date1 as! Date
-        let date22 = date2 as! Date
+        let date11 = date1! as Date
+        let date22 = date2! as Date
         
         var flags = Set<Calendar.Component>([.year])
         var components = calendar.dateComponents(flags, from: date11, to: date22)

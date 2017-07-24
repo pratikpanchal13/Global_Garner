@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var centerContainer:MMDrawerController?
     
+    var userModel : UserModel?
+
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         

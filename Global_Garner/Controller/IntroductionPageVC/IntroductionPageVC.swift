@@ -67,17 +67,6 @@ class IntroductionPageVC: UIViewController ,UIScrollViewDelegate {
         self.scrollView.delegate = self
         self.pageControl.currentPage = 0
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func btnSignUPClicked(_ sender: Any) {
         
@@ -95,29 +84,6 @@ class IntroductionPageVC: UIViewController ,UIScrollViewDelegate {
         self.navigationController?.pushViewController(loginVC, animated: true)
 
     }
-    
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        
-//        let pageWidth: CGFloat = scrlMainContainer.frame.size.width
-//        let currentPage: CGFloat = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1
-//        
-//        pageControl.currentPage = Int(currentPage)
-//        if currentPage == 0 {
-//            lblHeaderText.text = "Pay & Get 100% Cashback"
-//            lblMessageText.text = "So, get ready to earn & enjoy cash back on everything you shop via Global Garner."
-////            imgNext.image = UIImage(named: "cashback")
-//        }
-//        else if currentPage == 1 {
-//            lblHeaderText.text = "Fuel Cashback"
-//            lblMessageText.text = "1 Litre of GG/GG Co-Branded dringking water bottle will give you 1005 cashback of 1 litre fuel for your registered vehicle."
-////            imgNext.image = UIImage(named: "FPV")
-//        }
-//        else {
-//            lblHeaderText.text = "Socialize & Earn"
-//            lblMessageText.text = "Global Garner is world's 1st and only social media platform where all users can earn too."
-////            imgNext.image = UIImage(named: "Relations")
-//        }
-//    }
 
     //MARK: UIScrollView Delegate
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView){

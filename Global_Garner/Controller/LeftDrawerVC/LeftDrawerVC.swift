@@ -11,12 +11,19 @@ import UIKit
 class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource {
 
     var aryMenuList = [Any]()
+//    var objProfile = ProfileVC()
+    @IBOutlet var imgProfile: UIButton!
+    @IBOutlet var lblUserName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         aryMenuList = ["Bill Uploads", "Vendor Referrals", "User Referrals", "UPV Cashback", "UPV Orders", "Make MyCart History", "Manage Address", "Wallet", "GG Stats", "Credits", "Know Us", "Contact Us", "Terms and Conditions", "Privacy Policy", "Logout"]
 
+        lblUserName.text =  AppDelegate().appDelegate().userModel?.body?.username
+        
+//        ProfileVC.getImageUser()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -26,6 +33,12 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
     }
     
 
+    @IBAction func btnEditImageClicked(_ sender: Any) {
+        
+        let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
+        let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "ProfileVC")
+        self.mm_drawerController.centerViewController.navigationController?.pushViewController(centerVC, animated: true)
+    }
     
     // MARK: - Tableview DataSource Methods
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -72,7 +85,6 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
         default:
             self.navigationController?.popViewController(animated: true)
             return
-            break
             
         }
         
@@ -86,7 +98,10 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
         }
 
     }
+    
+    
 
+    
 }
 
 

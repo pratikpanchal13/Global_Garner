@@ -28,6 +28,11 @@
 		A947A2D91F0E13CE0073A431 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */; };
 		A947A2DC1F0E15AA0073A431 /* GGStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2DB1F0E15AA0073A431 /* GGStatsVC.swift */; };
 		A947A2E81F0E18090073A431 /* GGWalletsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2E71F0E18090073A431 /* GGWalletsVC.swift */; };
+		A95114AB1F25E808002648C6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95114AA1F25E808002648C6 /* HomeVC.swift */; };
+		A95114AD1F25E81B002648C6 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95114AC1F25E81B002648C6 /* CartVC.swift */; };
+		A95114AF1F25E829002648C6 /* MakeMyCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95114AE1F25E829002648C6 /* MakeMyCartVC.swift */; };
+		A95114B11F25E835002648C6 /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95114B01F25E835002648C6 /* NotificationsVC.swift */; };
+		A95114B31F25E844002648C6 /* MyFavouriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95114B21F25E844002648C6 /* MyFavouriteVC.swift */; };
 		A951A95C1F149D0700706FE6 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A951A95B1F149D0700706FE6 /* Profile.storyboard */; };
 		A951A95F1F149D5200706FE6 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A951A95E1F149D5200706FE6 /* ProfileVC.swift */; };
 		A951A9621F149D8400706FE6 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A951A9611F149D8400706FE6 /* EditProfileVC.swift */; };
@@ -52,7 +57,6 @@
 		A9ECCE191F0BA07500AB1B1B /* loading@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = A9ECCE161F0BA07500AB1B1B /* loading@2x.gif */; };
 		A9ECCE1A1F0BA07500AB1B1B /* loading@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = A9ECCE171F0BA07500AB1B1B /* loading@3x.gif */; };
 		A9ECCE1B1F0BA07500AB1B1B /* LoadingNew@2x.gif in Resources */ = {isa = PBXBuildFile; fileRef = A9ECCE181F0BA07500AB1B1B /* LoadingNew@2x.gif */; };
-		A9F656A81F0A21610087C9C1 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F656A71F0A21610087C9C1 /* HomeVC.swift */; };
 		A9F656AA1F0A21870087C9C1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9F656A91F0A21870087C9C1 /* Home.storyboard */; };
 		A9F656BE1F0A71730087C9C1 /* Body.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F656BC1F0A71730087C9C1 /* Body.swift */; };
 		A9F656BF1F0A71730087C9C1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F656BD1F0A71730087C9C1 /* UserModel.swift */; };
@@ -105,6 +109,11 @@
 		A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		A947A2DB1F0E15AA0073A431 /* GGStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGStatsVC.swift; sourceTree = "<group>"; };
 		A947A2E71F0E18090073A431 /* GGWalletsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGWalletsVC.swift; sourceTree = "<group>"; };
+		A95114AA1F25E808002648C6 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		A95114AC1F25E81B002648C6 /* CartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
+		A95114AE1F25E829002648C6 /* MakeMyCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeMyCartVC.swift; sourceTree = "<group>"; };
+		A95114B01F25E835002648C6 /* NotificationsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		A95114B21F25E844002648C6 /* MyFavouriteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFavouriteVC.swift; sourceTree = "<group>"; };
 		A951A95B1F149D0700706FE6 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		A951A95E1F149D5200706FE6 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		A951A9611F149D8400706FE6 /* EditProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
@@ -129,7 +138,6 @@
 		A9ECCE161F0BA07500AB1B1B /* loading@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading@2x.gif"; sourceTree = "<group>"; };
 		A9ECCE171F0BA07500AB1B1B /* loading@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading@3x.gif"; sourceTree = "<group>"; };
 		A9ECCE181F0BA07500AB1B1B /* LoadingNew@2x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "LoadingNew@2x.gif"; sourceTree = "<group>"; };
-		A9F656A71F0A21610087C9C1 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		A9F656A91F0A21870087C9C1 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A9F656BC1F0A71730087C9C1 /* Body.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Body.swift; sourceTree = "<group>"; };
 		A9F656BD1F0A71730087C9C1 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -234,6 +242,7 @@
 		A90029A61EFA723200D50988 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A95114A41F25E7AA002648C6 /* Dashboard */,
 				A951A9571F149BCA00706FE6 /* ProfileModule */,
 				A947A2E61F0E17FE0073A431 /* GGWalletsVC */,
 				A947A2DA1F0E159D0073A431 /* GGStatsVC */,
@@ -347,6 +356,58 @@
 				A947A2E71F0E18090073A431 /* GGWalletsVC.swift */,
 			);
 			path = GGWalletsVC;
+			sourceTree = "<group>";
+		};
+		A95114A41F25E7AA002648C6 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A95114A51F25E7E8002648C6 /* HomeVC */,
+				A95114A61F25E7E8002648C6 /* CartVC */,
+				A95114A71F25E7E8002648C6 /* MakeMyCartVC */,
+				A95114A81F25E7E8002648C6 /* NotificationsVC */,
+				A95114A91F25E7E8002648C6 /* MyFavouriteVC */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		A95114A51F25E7E8002648C6 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				A95114AA1F25E808002648C6 /* HomeVC.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		A95114A61F25E7E8002648C6 /* CartVC */ = {
+			isa = PBXGroup;
+			children = (
+				A95114AC1F25E81B002648C6 /* CartVC.swift */,
+			);
+			path = CartVC;
+			sourceTree = "<group>";
+		};
+		A95114A71F25E7E8002648C6 /* MakeMyCartVC */ = {
+			isa = PBXGroup;
+			children = (
+				A95114AE1F25E829002648C6 /* MakeMyCartVC.swift */,
+			);
+			path = MakeMyCartVC;
+			sourceTree = "<group>";
+		};
+		A95114A81F25E7E8002648C6 /* NotificationsVC */ = {
+			isa = PBXGroup;
+			children = (
+				A95114B01F25E835002648C6 /* NotificationsVC.swift */,
+			);
+			path = NotificationsVC;
+			sourceTree = "<group>";
+		};
+		A95114A91F25E7E8002648C6 /* MyFavouriteVC */ = {
+			isa = PBXGroup;
+			children = (
+				A95114B21F25E844002648C6 /* MyFavouriteVC.swift */,
+			);
+			path = MyFavouriteVC;
 			sourceTree = "<group>";
 		};
 		A951A9571F149BCA00706FE6 /* ProfileModule */ = {
@@ -493,7 +554,6 @@
 		A9F656A61F0A20E70087C9C1 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				A9F656A71F0A21610087C9C1 /* HomeVC.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -826,9 +886,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9DDF2051F0CADDD00999D70 /* StoryboardIdentifiable.swift in Sources */,
+				A95114AB1F25E808002648C6 /* HomeVC.swift in Sources */,
+				A95114B31F25E844002648C6 /* MyFavouriteVC.swift in Sources */,
 				A9F656BE1F0A71730087C9C1 /* Body.swift in Sources */,
 				A90029B91EFA7A5D00D50988 /* UITextField+customeTextField.swift in Sources */,
-				A9F656A81F0A21610087C9C1 /* HomeVC.swift in Sources */,
 				A9DDF2061F0CADDD00999D70 /* UIViewController+StoryboardIdentifier.swift in Sources */,
 				A90029B41EFA786E00D50988 /* Utility.swift in Sources */,
 				A98DF4E71EFBA4200037C063 /* Webservice.swift in Sources */,
@@ -836,6 +897,8 @@
 				A951A96F1F149F4B00706FE6 /* UserProfileImageCell.swift in Sources */,
 				A9B487E31F13A07D0042A502 /* UIColor_customeColor.swift in Sources */,
 				A951A96D1F149F3E00706FE6 /* UserProfileVerifiedCell.swift in Sources */,
+				A95114AD1F25E81B002648C6 /* CartVC.swift in Sources */,
+				A95114B11F25E835002648C6 /* NotificationsVC.swift in Sources */,
 				A951A95F1F149D5200706FE6 /* ProfileVC.swift in Sources */,
 				A951A9621F149D8400706FE6 /* EditProfileVC.swift in Sources */,
 				A90029B81EFA7A5D00D50988 /* NICAlertController.swift in Sources */,
@@ -849,6 +912,7 @@
 				A90029791EFA713D00D50988 /* AppDelegate.swift in Sources */,
 				A9F656BF1F0A71730087C9C1 /* UserModel.swift in Sources */,
 				A9DDF2041F0CADDD00999D70 /* PKStoryboard.swift in Sources */,
+				A95114AF1F25E829002648C6 /* MakeMyCartVC.swift in Sources */,
 				A951A9691F149F2200706FE6 /* UserProfileMobileCell.swift in Sources */,
 				A90029AE1EFA72A300D50988 /* LoginVC.swift in Sources */,
 				A951A96B1F149F2E00706FE6 /* UserProfileOtherInfoCell.swift in Sources */,
