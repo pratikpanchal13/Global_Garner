@@ -21,6 +21,8 @@ target 'Global_Garner' do
     
     pod 'MMDrawerController'
     
+    pod 'Firebase/AdMob'
+
     
     target 'Global_GarnerTests' do
         inherit! :search_paths

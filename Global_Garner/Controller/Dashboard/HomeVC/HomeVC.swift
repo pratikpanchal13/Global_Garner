@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import GoogleMobileAds
+import  Alamofire
 
-class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate , GADBannerViewDelegate {
     
     
     @IBOutlet var view1: UIView!
@@ -17,18 +20,37 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     @IBOutlet var btnProfile: UIButton!
     var imagePicker = UIImagePickerController()
     
+    
     @IBOutlet var txtdata: UITextField!
     @IBOutlet var consHeight: NSLayoutConstraint!
+    
+    
+    var bannerView: GADBannerView!
+
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
         
+        
         self.txtdata.useUnderline(color: UIColor.colorFromCode(12   ), borderWidth: 10.0)
         
+        self.APICAll()
+    
+
+        //ADMOBS Add banner
+//        bannerView = GADBannerView(adSize: kGADAdSizeFullBanner)
+//        self.view.addSubview(bannerView)
+//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+//        bannerView.rootViewController = self
+//        
+//        bannerView.load(GADRequest())
         
     }
+    
+   
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -101,11 +123,79 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     }
     @IBAction func btnLogout(_ sender: UIButton) {
         
-        let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
-        let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "ProfileVC")
-        self.mm_drawerController.centerViewController.navigationController?.pushViewController(centerVC, animated: true)
+        //        let storyboardDashBoard = UIStoryboard(name: "Profile", bundle: nil)
+        //        let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: "ProfileVC")
+        //        self.mm_drawerController.centerViewController.navigationController?.pushViewController(centerVC, animated: true)
+        //
+        
+        
+        
+        let storyboardDashBoard = UIStoryboard(name: "Dashboard", bundle: nil)
+        let commentVC = storyboardDashBoard.instantiateViewController(withIdentifier: "CommentVC")
+        
+        view.addSubview(commentVC.view)
+        addChildViewController(commentVC)
+        
+        commentVC.view?.frame = CGRect(x: commentVC.view.frame.origin.x, y: +commentVC.view.frame.size.height, width: commentVC.view.frame.size.width, height: commentVC.view.frame.size.height)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            //
+            commentVC.view.frame = CGRect(x: commentVC.view.frame.origin.x, y: 0, width: commentVC.view.frame.size.width, height: commentVC.view.frame.size.height)
+            
+        }) { (isFinshed) in
+            //
+        }
+        
+    }
+ 
+    
+}
+
+
+//MARK:- ADMOBS Delegate
+extension HomeVC
+{
+    /// Tells the delegate an ad request loaded an ad.
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("adViewDidReceiveAd")
     }
     
+    /// Tells the delegate an ad request failed.
+    func adView(_ bannerView: GADBannerView,
+                didFailToReceiveAdWithError error: GADRequestError) {
+        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
     
+    /// Tells the delegate that a full screen view will be presented in response
+    /// to the user clicking on an ad.
+    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("adViewWillPresentScreen")
+    }
     
+    /// Tells the delegate that the full screen view will be dismissed.
+    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewWillDismissScreen")
+    }
+    
+    /// Tells the delegate that the full screen view has been dismissed.
+    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+        print("adViewDidDismissScreen")
+    }
+    
+    /// Tells the delegate that a user click will open another app (such as
+    /// the App Store), backgrounding the current app.
+    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+        print("adViewWillLeaveApplication")
+    }
+}
+
+extension HomeVC
+{
+    func APICAll()
+    {
+        Alamofire.request("url", method: .put, parameters: nil, encoding: JSONEncoding(options: []), headers: nil).response { (response) in
+            // Response is
+            print("\(response)")
+        }
+    }
 }
