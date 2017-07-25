@@ -10,8 +10,11 @@ import UIKit
 
 class CommentVC: UIViewController ,UITextViewDelegate {
 
+    public var passDataWithIndex:( _ arryData : Any)->() = {_ in}
+
     @IBOutlet var conHeightTxtViewComment: NSLayoutConstraint!
     
+
     @IBOutlet var txtviewComment: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,21 @@ class CommentVC: UIViewController ,UITextViewDelegate {
     
     
     @IBAction func btnDoneClicked(_ sender: Any) {
+    
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
+            
+            self.view.frame = CGRect(x: self.view.frame.origin.x, y: +self.view.frame.size.height, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            
+        }) { (isFinished) in
+            //
+            self.passDataWithIndex(self.txtviewComment.text)  // Passing Data Using Blocks to Parent VC
+
+            self.view.removeFromSuperview()
+            self.removeFromParentViewController()
+        }
+        
+        
+
     }
     
 

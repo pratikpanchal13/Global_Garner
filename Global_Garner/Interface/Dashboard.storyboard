@@ -485,28 +485,49 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Stg-Os-ehG" userLabel=" Main">
                                 <rect key="frame" x="0.0" y="374" width="375" height="244"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPR-5t-ohu" userLabel="View 1">
-                                        <rect key="frame" x="8" y="8" width="359" height="103"/>
-                                        <color key="backgroundColor" red="0.56078431370000004" green="0.93725490199999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-3o-lq6" userLabel="View 2">
-                                        <rect key="frame" x="8" y="119" width="359" height="117"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1g1-kV-7Zq">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="117" id="MkT-7U-e7R"/>
-                                        </constraints>
-                                    </view>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellComment" rowHeight="101" id="fH7-uO-qe7" customClass="cellComment" customModule="Global_Garner" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="101"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fH7-uO-qe7" id="Rnt-XE-nih">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-iW-F7Y">
+                                                            <rect key="frame" x="25" y="40" width="328" height="35"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="PSg-iW-F7Y" secondAttribute="trailing" constant="22" id="CUB-6W-4ym"/>
+                                                        <constraint firstItem="PSg-iW-F7Y" firstAttribute="leading" secondItem="Rnt-XE-nih" secondAttribute="leading" constant="25" id="Sm3-tO-aDG"/>
+                                                        <constraint firstItem="PSg-iW-F7Y" firstAttribute="top" secondItem="Rnt-XE-nih" secondAttribute="top" constant="40" id="T5n-Bl-2Io"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PSg-iW-F7Y" secondAttribute="bottom" constant="25.5" id="iBM-Jt-maS"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="lblComment" destination="PSg-iW-F7Y" id="MP8-A2-0xO"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="cbW-k7-ixL" id="hVx-r1-oSg"/>
+                                            <outlet property="delegate" destination="cbW-k7-ixL" id="O3q-rK-gGC"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="hPR-5t-ohu" firstAttribute="top" secondItem="Stg-Os-ehG" secondAttribute="top" constant="8" id="5yg-uX-efn"/>
-                                    <constraint firstAttribute="trailing" secondItem="bV4-3o-lq6" secondAttribute="trailing" constant="8" id="6oG-CK-vU6"/>
+                                    <constraint firstItem="1g1-kV-7Zq" firstAttribute="leading" secondItem="Stg-Os-ehG" secondAttribute="leading" id="2HH-Qu-vfi"/>
                                     <constraint firstAttribute="height" constant="244" id="Bva-dG-jWl"/>
-                                    <constraint firstItem="bV4-3o-lq6" firstAttribute="top" secondItem="hPR-5t-ohu" secondAttribute="bottom" constant="8" id="SGp-GK-qeS"/>
-                                    <constraint firstAttribute="bottom" secondItem="bV4-3o-lq6" secondAttribute="bottom" constant="8" id="Tdk-fr-P8g"/>
-                                    <constraint firstItem="hPR-5t-ohu" firstAttribute="leading" secondItem="Stg-Os-ehG" secondAttribute="leading" constant="8" id="ojO-FW-rRI"/>
-                                    <constraint firstAttribute="trailing" secondItem="hPR-5t-ohu" secondAttribute="trailing" constant="8" id="umR-wd-ZAz"/>
-                                    <constraint firstItem="bV4-3o-lq6" firstAttribute="leading" secondItem="Stg-Os-ehG" secondAttribute="leading" constant="8" id="yYO-9O-hTC"/>
+                                    <constraint firstAttribute="trailing" secondItem="1g1-kV-7Zq" secondAttribute="trailing" id="S6a-b2-89S"/>
+                                    <constraint firstAttribute="bottom" secondItem="1g1-kV-7Zq" secondAttribute="bottom" id="hKQ-Le-uiX"/>
+                                    <constraint firstItem="1g1-kV-7Zq" firstAttribute="top" secondItem="Stg-Os-ehG" secondAttribute="top" id="hSR-IC-YmE"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfm-kF-08L">
@@ -532,15 +553,13 @@
                     <navigationItem key="navigationItem" id="uRd-Tj-7tF"/>
                     <connections>
                         <outlet property="btnProfile" destination="Jv8-aG-e1v" id="i92-HH-rGl"/>
-                        <outlet property="consHeight" destination="MkT-7U-e7R" id="rn0-zx-RUc"/>
+                        <outlet property="tblComments" destination="1g1-kV-7Zq" id="alI-hG-N5E"/>
                         <outlet property="txtdata" destination="pfm-kF-08L" id="OrA-4c-wps"/>
-                        <outlet property="view1" destination="hPR-5t-ohu" id="Sui-8o-cp2"/>
-                        <outlet property="view2" destination="bV4-3o-lq6" id="ycB-gK-Vye"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbK-OI-mUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-746" y="2527"/>
+            <point key="canvasLocation" x="-746.39999999999998" y="2526.3868065967017"/>
         </scene>
         <!--Home-->
         <scene sceneID="br7-JZ-P6R">
@@ -549,7 +568,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="ic_Tab_1" selectedImage="ic_Tab_Selected1" id="PjU-ZX-BbD"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pjj-Nh-LQJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pjj-Nh-LQJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -569,7 +588,7 @@
                     <tabBarItem key="tabBarItem" title="Cart" image="ic_Tab_2" selectedImage="ic_Tab_Selected2" id="JKm-3B-ywo"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TGM-bc-J4J">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TGM-bc-J4J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -589,7 +608,7 @@
                     <tabBarItem key="tabBarItem" title="Make MyCart" image="ic_Tab_3" selectedImage="ic_Tab_Selected3" id="XS7-4m-bim"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MYq-XP-DaP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MYq-XP-DaP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -609,7 +628,7 @@
                     <tabBarItem key="tabBarItem" title="Notifications" image="ic_Tab_4" selectedImage="ic_Tab_Selected4" id="dnI-NN-M4g"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ndk-5a-vCL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ndk-5a-vCL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -629,7 +648,7 @@
                     <tabBarItem key="tabBarItem" title="My Favourite" image="ic_Tab_5" selectedImage="ic_Tab_Selected5" id="0L4-E1-hgt"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BfG-sO-g4L">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BfG-sO-g4L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

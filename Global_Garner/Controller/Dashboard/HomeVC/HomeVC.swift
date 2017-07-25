@@ -11,7 +11,7 @@ import GoogleMobileAds
 import  Alamofire
 
 
-class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate , GADBannerViewDelegate {
+class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate , GADBannerViewDelegate ,UITableViewDelegate,UITableViewDataSource {
     
     
     @IBOutlet var view1: UIView!
@@ -19,11 +19,13 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     // MARK: - OutLets
     @IBOutlet var btnProfile: UIButton!
     var imagePicker = UIImagePickerController()
-    
+
+    var arryData = [String]()
     
     @IBOutlet var txtdata: UITextField!
     @IBOutlet var consHeight: NSLayoutConstraint!
     
+    @IBOutlet var tblComments: UITableView!
     
     var bannerView: GADBannerView!
 
@@ -38,6 +40,9 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         
         self.APICAll()
     
+        
+        tblComments.estimatedRowHeight = 44.0
+        tblComments.rowHeight = UITableViewAutomaticDimension
 
         //ADMOBS Add banner
 //        bannerView = GADBannerView(adSize: kGADAdSizeFullBanner)
@@ -131,10 +136,20 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         
         
         let storyboardDashBoard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let commentVC = storyboardDashBoard.instantiateViewController(withIdentifier: "CommentVC")
-        
+//        let commentVC = storyboardDashBoard.instantiateViewController(withIdentifier: "CommentVC")
+        let commentVC:CommentVC = storyboardDashBoard.instantiateViewController(withIdentifier: "CommentVC") as! CommentVC
+
         view.addSubview(commentVC.view)
         addChildViewController(commentVC)
+        
+        
+        commentVC.passDataWithIndex = { arrayData in
+
+            print("Data is \(arrayData)")
+            self.arryData.append(arrayData as! String)
+            self.tblComments.reloadData()
+        }
+        
         
         commentVC.view?.frame = CGRect(x: commentVC.view.frame.origin.x, y: +commentVC.view.frame.size.height, width: commentVC.view.frame.size.width, height: commentVC.view.frame.size.height)
         
@@ -198,4 +213,21 @@ extension HomeVC
             print("\(response)")
         }
     }
+}
+
+
+
+extension HomeVC
+{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arryData.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell:cellComment = tableView.dequeueReusableCell(withIdentifier: "cellComment") as! cellComment
+        cell.lblComment.text = self.arryData[indexPath.row]
+        
+        return cell
+    }
+    
 }
