@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import GoogleMobileAds
-import  Alamofire
+import Alamofire
 
 
-class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate , GADBannerViewDelegate ,UITableViewDelegate,UITableViewDataSource {
+class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate  ,UITableViewDelegate,UITableViewDataSource {
     
     
     @IBOutlet var view1: UIView!
@@ -27,12 +26,16 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     
     @IBOutlet var tblComments: UITableView!
     
-    var bannerView: GADBannerView!
 
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
+        
+         arryData = ["Pratik","Ios Developer","Indianic","MCA","Swift Developer","Java","PHP"]
+        
         imagePicker.delegate = self
         
         
@@ -43,7 +46,33 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         
         tblComments.estimatedRowHeight = 44.0
         tblComments.rowHeight = UITableViewAutomaticDimension
+        
+        
+        var payer = (name:"Pratik",marks:99,isMember:true)
+        
+        print(payer.name)
+        print(payer.marks)
+        print(payer.isMember)
+        
+        
+        
+        GCDExample() // Example GCD With
+        
+        
+        
+//        var arr = ["Pratik","Panchal","Ahmedabad"]
+//        let charArray =  arr.flatMap { String.CharacterView($0) }
+//        let swiftstring = String(charArray)
+//        print("My Name is \(swiftstring)")
 
+//        
+//        var arr = ["Pratik","Panchal","Ahmedabad"]
+//        let charArray =  arr.joined(separator:  "  , ")
+//        let swiftstring = String(charArray)
+//        print("My Name is \(charArray)")
+//        
+//    
+//        
         //ADMOBS Add banner
 //        bannerView = GADBannerView(adSize: kGADAdSizeFullBanner)
 //        self.view.addSubview(bannerView)
@@ -134,6 +163,10 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         //
         
         
+//        Utility().animateCells(tableView: self.tblComments)
+//        tblComments.reloadData()
+
+        
         
         let storyboardDashBoard = UIStoryboard(name: "Dashboard", bundle: nil)
 //        let commentVC = storyboardDashBoard.instantiateViewController(withIdentifier: "CommentVC")
@@ -147,7 +180,9 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
 
             print("Data is \(arrayData)")
             self.arryData.append(arrayData as! String)
+
             self.tblComments.reloadData()
+            Utility().animateCells(tableView: self.tblComments)
         }
         
         
@@ -168,41 +203,41 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
 
 
 //MARK:- ADMOBS Delegate
-extension HomeVC
-{
-    /// Tells the delegate an ad request loaded an ad.
-    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("adViewDidReceiveAd")
-    }
-    
-    /// Tells the delegate an ad request failed.
-    func adView(_ bannerView: GADBannerView,
-                didFailToReceiveAdWithError error: GADRequestError) {
-        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-    }
-    
-    /// Tells the delegate that a full screen view will be presented in response
-    /// to the user clicking on an ad.
-    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-        print("adViewWillPresentScreen")
-    }
-    
-    /// Tells the delegate that the full screen view will be dismissed.
-    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("adViewWillDismissScreen")
-    }
-    
-    /// Tells the delegate that the full screen view has been dismissed.
-    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("adViewDidDismissScreen")
-    }
-    
-    /// Tells the delegate that a user click will open another app (such as
-    /// the App Store), backgrounding the current app.
-    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-        print("adViewWillLeaveApplication")
-    }
-}
+//extension HomeVC
+//{
+//    /// Tells the delegate an ad request loaded an ad.
+//    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+//        print("adViewDidReceiveAd")
+//    }
+//    
+//    /// Tells the delegate an ad request failed.
+//    func adView(_ bannerView: GADBannerView,
+//                didFailToReceiveAdWithError error: GADRequestError) {
+//        print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+//    }
+//    
+//    /// Tells the delegate that a full screen view will be presented in response
+//    /// to the user clicking on an ad.
+//    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
+//        print("adViewWillPresentScreen")
+//    }
+//    
+//    /// Tells the delegate that the full screen view will be dismissed.
+//    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
+//        print("adViewWillDismissScreen")
+//    }
+//    
+//    /// Tells the delegate that the full screen view has been dismissed.
+//    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
+//        print("adViewDidDismissScreen")
+//    }
+//    
+//    /// Tells the delegate that a user click will open another app (such as
+//    /// the App Store), backgrounding the current app.
+//    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
+//        print("adViewWillLeaveApplication")
+//    }
+//}
 
 extension HomeVC
 {
@@ -228,6 +263,24 @@ extension HomeVC
         cell.lblComment.text = self.arryData[indexPath.row]
         
         return cell
+    }
+    
+}
+
+
+extension HomeVC{
+    
+    func GCDExample(){
+        
+        DispatchQueue.global().async {
+            // Back ground Thread
+            
+            DispatchQueue.main.async(execute: { 
+                
+                // Main Queue UI Update
+            })
+        }
+        
     }
     
 }

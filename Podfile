@@ -21,9 +21,14 @@ target 'Global_Garner' do
     
     pod 'MMDrawerController'
     
-    pod 'Firebase/AdMob'
+#    pod 'Firebase/AdMob'
 
-    
+#    pod 'FacebookCore'
+#    pod 'FacebookLogin'
+#    pod 'FacebookShare'
+#
+#    pod 'FBAudienceNetwork'
+
     target 'Global_GarnerTests' do
         inherit! :search_paths
         # Pods for testing

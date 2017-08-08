@@ -1,23 +1,5 @@
 PODS:
   - Alamofire (4.5.0)
-  - Firebase/AdMob (4.0.2):
-    - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.20.0)
-  - Firebase/Core (4.0.2):
-    - FirebaseAnalytics (= 4.0.1)
-    - FirebaseCore (= 4.0.2)
-  - FirebaseAnalytics (4.0.1):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (4.0.2):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (2.0.0):
-    - FirebaseCore (~> 4.0)
-  - Google-Mobile-Ads-SDK (7.20.0)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
   - Material (2.6.3):
     - Material/Core (= 2.6.3)
   - Material/Core (2.6.3)
@@ -42,7 +24,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - Firebase/AdMob
   - Material (~> 2.0)
   - MBProgressHUD (~> 1.0.0)
   - MMDrawerController
@@ -52,12 +33,6 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  Firebase: c7ad0731eab26d18a3fc547dd048b0f7cd9c63ae
-  FirebaseAnalytics: 4d7040fefc3cd8b291cde35f12cf063d7963f15d
-  FirebaseCore: 1a8bf6c795ad07d2918278657954ffd2552e9c17
-  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
-  Google-Mobile-Ads-SDK: 168312cdc167fa22746d4ea8e839fc4825dd2966
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
@@ -65,6 +40,6 @@ SPEC CHECKSUMS:
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 9476dabe91f36aa489cab49e98e417fbe03adbae
+PODFILE CHECKSUM: 66da59495de59c89df976decbd084e14ab0d2130
 
 COCOAPODS: 1.2.0

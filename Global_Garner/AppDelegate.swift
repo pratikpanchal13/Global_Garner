@@ -9,7 +9,6 @@
 import UIKit
 import MBProgressHUD
 import MMDrawerController
-import Firebase
 
 
 @UIApplicationMain
