@@ -20,7 +20,12 @@ target 'Global_Garner' do
     pod 'Material', '~> 2.0'
     
     pod 'MMDrawerController'
+
+    pod 'Firebase/Storage'
+    pod 'Firebase/Database'    
+    pod 'Firebase/Core'
     
+
 #    pod 'Firebase/AdMob'
 
 #    pod 'FacebookCore'

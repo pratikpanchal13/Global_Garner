@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import FirebaseDatabase
 
 class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate  ,UITableViewDelegate,UITableViewDataSource {
     
@@ -26,20 +26,42 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     
     @IBOutlet var tblComments: UITableView!
     
+    
+    // FireBase variables
+    var ref: DatabaseReference?
+    
+    var dataBaseHandel:DatabaseHandle?
+    
+    
 
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
-        
-        
         super.viewDidLoad()
         
-         arryData = ["Pratik","Ios Developer","Indianic","MCA","Swift Developer","Java","PHP"]
+        
+        //***************************** | FireBase |***********************************
+        //1______________ Create Database Reference ______________
+        
+        ref = Database.database().reference()
+        
+        //2______________ Get Data From FireBasse ______________
+    
+        dataBaseHandel = ref?.child("Comments").observe(.childAdded, with: { (snapshot) in
+            
+            let post = snapshot.value as? String
+            if let postData = post{
+                self.arryData.append(postData)
+                self.tblComments.reloadData()
+                Utility().animateCells(tableView: self.tblComments)
+            }
+            
+        })
+        //********************************************************************************
         
         imagePicker.delegate = self
         
         
-        self.txtdata.useUnderline(color: UIColor.colorFromCode(12   ), borderWidth: 10.0)
         
         self.APICAll()
     
@@ -47,39 +69,6 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         tblComments.estimatedRowHeight = 44.0
         tblComments.rowHeight = UITableViewAutomaticDimension
         
-        
-        var payer = (name:"Pratik",marks:99,isMember:true)
-        
-        print(payer.name)
-        print(payer.marks)
-        print(payer.isMember)
-        
-        
-        
-        GCDExample() // Example GCD With
-        
-        
-        
-//        var arr = ["Pratik","Panchal","Ahmedabad"]
-//        let charArray =  arr.flatMap { String.CharacterView($0) }
-//        let swiftstring = String(charArray)
-//        print("My Name is \(swiftstring)")
-
-//        
-//        var arr = ["Pratik","Panchal","Ahmedabad"]
-//        let charArray =  arr.joined(separator:  "  , ")
-//        let swiftstring = String(charArray)
-//        print("My Name is \(charArray)")
-//        
-//    
-//        
-        //ADMOBS Add banner
-//        bannerView = GADBannerView(adSize: kGADAdSizeFullBanner)
-//        self.view.addSubview(bannerView)
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
-//        bannerView.rootViewController = self
-//        
-//        bannerView.load(GADRequest())
         
     }
     
@@ -174,13 +163,21 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
 
         view.addSubview(commentVC.view)
         addChildViewController(commentVC)
+
+        
         
         
         commentVC.passDataWithIndex = { arrayData in
 
             print("Data is \(arrayData)")
-            self.arryData.append(arrayData as! String)
+        
+            
+            //Fire Base Add data
+            self.ref?.child("Comments").childByAutoId().setValue(arrayData)
+            
+//            self.arryData.append(arrayData as! String)
 
+            
             self.tblComments.reloadData()
             Utility().animateCells(tableView: self.tblComments)
         }

@@ -22,6 +22,7 @@
 		A90029B41EFA786E00D50988 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B31EFA786E00D50988 /* Utility.swift */; };
 		A90029B81EFA7A5D00D50988 /* NICAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B61EFA7A5D00D50988 /* NICAlertController.swift */; };
 		A90029B91EFA7A5D00D50988 /* UITextField+customeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90029B71EFA7A5D00D50988 /* UITextField+customeTextField.swift */; };
+		A91F0A871F3AFE6A00838F0E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A91F0A861F3AFE6A00838F0E /* GoogleService-Info.plist */; };
 		A928FA361F17500600133A2F /* UIImageExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = A928FA351F17500600133A2F /* UIImageExtention.swift */; };
 		A947A2D51F0E00F40073A431 /* LeftDrawerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2D41F0E00F40073A431 /* LeftDrawerVC.swift */; };
 		A947A2D71F0E010A0073A431 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A947A2D61F0E010A0073A431 /* SideMenu.storyboard */; };
@@ -105,6 +106,7 @@
 		A90029B31EFA786E00D50988 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		A90029B61EFA7A5D00D50988 /* NICAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NICAlertController.swift; sourceTree = "<group>"; };
 		A90029B71EFA7A5D00D50988 /* UITextField+customeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+customeTextField.swift"; sourceTree = "<group>"; };
+		A91F0A861F3AFE6A00838F0E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A928FA351F17500600133A2F /* UIImageExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtention.swift; sourceTree = "<group>"; };
 		A947A2D41F0E00F40073A431 /* LeftDrawerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftDrawerVC.swift; sourceTree = "<group>"; };
 		A947A2D61F0E010A0073A431 /* SideMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				A900297F1EFA713D00D50988 /* Assets.xcassets */,
 				A90029811EFA713D00D50988 /* LaunchScreen.storyboard */,
 				A90029841EFA713D00D50988 /* Info.plist */,
+				A91F0A861F3AFE6A00838F0E /* GoogleService-Info.plist */,
 			);
 			path = Global_Garner;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				A9ECCE1A1F0BA07500AB1B1B /* loading@3x.gif in Resources */,
 				A90029801EFA713D00D50988 /* Assets.xcassets in Resources */,
 				A900297E1EFA713D00D50988 /* Main.storyboard in Resources */,
+				A91F0A871F3AFE6A00838F0E /* GoogleService-Info.plist in Resources */,
 				A9A0B9BF1F0CFF9B000E673F /* Registration.storyboard in Resources */,
 				A9DDF2121F0CF53100999D70 /* OpenSans-Bold.ttf in Resources */,
 				A951A95C1F149D0700706FE6 /* Profile.storyboard in Resources */,

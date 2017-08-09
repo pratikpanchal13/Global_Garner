@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GG Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPU-dI-R2T">
-                                        <rect key="frame" x="149.5" y="26" width="76" height="22"/>
+                                        <rect key="frame" x="150" y="26" width="76" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -495,22 +495,11 @@
                                     <constraint firstItem="ycE-rz-pVw" firstAttribute="centerY" secondItem="eeR-5o-nqd" secondAttribute="centerY" constant="10" id="OzH-Qb-lUW"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jv8-aG-e1v">
-                                <rect key="frame" x="16" y="91" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="2Cz-hr-XJi"/>
-                                    <constraint firstAttribute="width" constant="100" id="HfW-oq-N1l"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="PlaceHolder"/>
-                                <connections>
-                                    <action selector="btnProfileClicked:" destination="cbW-k7-ixL" eventType="touchUpInside" id="I2K-4C-6gK"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Stg-Os-ehG" userLabel=" Main">
-                                <rect key="frame" x="0.0" y="374" width="375" height="244"/>
+                                <rect key="frame" x="0.0" y="65" width="375" height="553"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1g1-kV-7Zq">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellComment" rowHeight="101" id="fH7-uO-qe7" customClass="cellComment" customModule="Global_Garner" customModuleProvider="target">
@@ -547,38 +536,27 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.71764705880000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="1g1-kV-7Zq" firstAttribute="leading" secondItem="Stg-Os-ehG" secondAttribute="leading" id="2HH-Qu-vfi"/>
-                                    <constraint firstAttribute="height" constant="244" id="Bva-dG-jWl"/>
-                                    <constraint firstAttribute="trailing" secondItem="1g1-kV-7Zq" secondAttribute="trailing" id="S6a-b2-89S"/>
-                                    <constraint firstAttribute="bottom" secondItem="1g1-kV-7Zq" secondAttribute="bottom" id="hKQ-Le-uiX"/>
-                                    <constraint firstItem="1g1-kV-7Zq" firstAttribute="top" secondItem="Stg-Os-ehG" secondAttribute="top" id="hSR-IC-YmE"/>
+                                    <constraint firstAttribute="bottom" secondItem="1g1-kV-7Zq" secondAttribute="bottom" id="ceo-I8-zz4"/>
+                                    <constraint firstItem="1g1-kV-7Zq" firstAttribute="top" secondItem="Stg-Os-ehG" secondAttribute="top" id="f5l-9x-TIx"/>
+                                    <constraint firstItem="1g1-kV-7Zq" firstAttribute="leading" secondItem="Stg-Os-ehG" secondAttribute="leading" id="jwn-yK-IFM"/>
+                                    <constraint firstAttribute="trailing" secondItem="1g1-kV-7Zq" secondAttribute="trailing" id="zhY-vU-GNU"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfm-kF-08L">
-                                <rect key="frame" x="32" y="273" width="299" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eeR-5o-nqd" firstAttribute="top" secondItem="FTz-bK-sor" secondAttribute="top" id="0cx-x3-Uvf"/>
-                            <constraint firstItem="Jv8-aG-e1v" firstAttribute="top" secondItem="eeR-5o-nqd" secondAttribute="bottom" constant="27" id="Cl4-pf-9D8"/>
-                            <constraint firstAttribute="trailing" secondItem="Stg-Os-ehG" secondAttribute="trailing" id="Mwh-7y-8gc"/>
-                            <constraint firstItem="Stg-Os-ehG" firstAttribute="leading" secondItem="FTz-bK-sor" secondAttribute="leading" id="SHk-ES-ujW"/>
+                            <constraint firstItem="BfA-l2-k66" firstAttribute="top" secondItem="Stg-Os-ehG" secondAttribute="bottom" id="58O-9O-ZOt"/>
+                            <constraint firstAttribute="trailing" secondItem="Stg-Os-ehG" secondAttribute="trailing" id="bmW-WH-YbI"/>
+                            <constraint firstItem="Stg-Os-ehG" firstAttribute="leading" secondItem="FTz-bK-sor" secondAttribute="leading" id="bma-ra-ccN"/>
+                            <constraint firstItem="Stg-Os-ehG" firstAttribute="top" secondItem="eeR-5o-nqd" secondAttribute="bottom" constant="1" id="h5T-2F-n55"/>
                             <constraint firstItem="eeR-5o-nqd" firstAttribute="leading" secondItem="FTz-bK-sor" secondAttribute="leading" id="l2s-SR-OUa"/>
-                            <constraint firstItem="BfA-l2-k66" firstAttribute="top" secondItem="Stg-Os-ehG" secondAttribute="bottom" id="nnB-Pd-VQc"/>
                             <constraint firstAttribute="trailing" secondItem="eeR-5o-nqd" secondAttribute="trailing" id="pfc-EI-Yck"/>
-                            <constraint firstItem="Jv8-aG-e1v" firstAttribute="leading" secondItem="FTz-bK-sor" secondAttribute="leading" constant="16" id="wMh-bz-kTs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uRd-Tj-7tF"/>
                     <connections>
-                        <outlet property="btnProfile" destination="Jv8-aG-e1v" id="i92-HH-rGl"/>
                         <outlet property="tblComments" destination="1g1-kV-7Zq" id="alI-hG-N5E"/>
-                        <outlet property="txtdata" destination="pfm-kF-08L" id="OrA-4c-wps"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbK-OI-mUn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -592,7 +570,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="ic_Tab_1" selectedImage="ic_Tab_Selected1" id="PjU-ZX-BbD"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pjj-Nh-LQJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pjj-Nh-LQJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -612,7 +590,7 @@
                     <tabBarItem key="tabBarItem" title="Cart" image="ic_Tab_2" selectedImage="ic_Tab_Selected2" id="JKm-3B-ywo"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TGM-bc-J4J">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TGM-bc-J4J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -632,7 +610,7 @@
                     <tabBarItem key="tabBarItem" title="Make MyCart" image="ic_Tab_3" selectedImage="ic_Tab_Selected3" id="XS7-4m-bim"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MYq-XP-DaP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MYq-XP-DaP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -652,7 +630,7 @@
                     <tabBarItem key="tabBarItem" title="Notifications" image="ic_Tab_4" selectedImage="ic_Tab_Selected4" id="dnI-NN-M4g"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ndk-5a-vCL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ndk-5a-vCL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -672,7 +650,7 @@
                     <tabBarItem key="tabBarItem" title="My Favourite" image="ic_Tab_5" selectedImage="ic_Tab_Selected5" id="0L4-E1-hgt"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BfG-sO-g4L">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BfG-sO-g4L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -688,7 +666,6 @@
     </scenes>
     <resources>
         <image name="BtnMenu" width="20" height="14"/>
-        <image name="PlaceHolder" width="375" height="190"/>
         <image name="btnDelete_Yellow" width="24" height="24"/>
         <image name="ic_Tab_1" width="30" height="30"/>
         <image name="ic_Tab_2" width="30" height="30"/>

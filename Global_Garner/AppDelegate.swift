@@ -11,6 +11,10 @@ import MBProgressHUD
 import MMDrawerController
 
 
+import Firebase
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -26,8 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // Use Firebase library to configure APIs.
-//        FirebaseApp.configure()
+//         Use Firebase library to configure APIs.
+        FirebaseApp.configure()
+        
 
         // Initialize the Google Mobile Ads SDK.
 //        GADMobileAds.configure(withApplicationID: "ca-app-pub-6939297204093190~7829168969")
