@@ -29,6 +29,8 @@
 		A947A2D91F0E13CE0073A431 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */; };
 		A947A2DC1F0E15AA0073A431 /* GGStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2DB1F0E15AA0073A431 /* GGStatsVC.swift */; };
 		A947A2E81F0E18090073A431 /* GGWalletsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A947A2E71F0E18090073A431 /* GGWalletsVC.swift */; };
+		A94A4C5D1F3D836A008F0455 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94A4C5C1F3D836A008F0455 /* ArtistModel.swift */; };
+		A94A4C601F3D85FF008F0455 /* FireBaseCRUDVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94A4C5F1F3D85FF008F0455 /* FireBaseCRUDVC.swift */; };
 		A95114AB1F25E808002648C6 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95114AA1F25E808002648C6 /* HomeVC.swift */; };
 		A95114AD1F25E81B002648C6 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95114AC1F25E81B002648C6 /* CartVC.swift */; };
 		A95114AF1F25E829002648C6 /* MakeMyCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95114AE1F25E829002648C6 /* MakeMyCartVC.swift */; };
@@ -113,6 +115,8 @@
 		A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		A947A2DB1F0E15AA0073A431 /* GGStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGStatsVC.swift; sourceTree = "<group>"; };
 		A947A2E71F0E18090073A431 /* GGWalletsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GGWalletsVC.swift; sourceTree = "<group>"; };
+		A94A4C5C1F3D836A008F0455 /* ArtistModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
+		A94A4C5F1F3D85FF008F0455 /* FireBaseCRUDVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseCRUDVC.swift; sourceTree = "<group>"; };
 		A95114AA1F25E808002648C6 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		A95114AC1F25E81B002648C6 /* CartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		A95114AE1F25E829002648C6 /* MakeMyCartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeMyCartVC.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		A90029A61EFA723200D50988 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A94A4C5E1F3D85E1008F0455 /* FireBase CRUD */,
 				A95114A41F25E7AA002648C6 /* Dashboard */,
 				A951A9571F149BCA00706FE6 /* ProfileModule */,
 				A947A2E61F0E17FE0073A431 /* GGWalletsVC */,
@@ -264,6 +269,7 @@
 		A90029A71EFA723200D50988 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A94A4C5A1F3D8361008F0455 /* Firebase */,
 				A9F656AB1F0A67700087C9C1 /* UserModel */,
 			);
 			path = Model;
@@ -363,6 +369,30 @@
 				A947A2E71F0E18090073A431 /* GGWalletsVC.swift */,
 			);
 			path = GGWalletsVC;
+			sourceTree = "<group>";
+		};
+		A94A4C5A1F3D8361008F0455 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				A94A4C5B1F3D8361008F0455 /* ArtistModel */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		A94A4C5B1F3D8361008F0455 /* ArtistModel */ = {
+			isa = PBXGroup;
+			children = (
+				A94A4C5C1F3D836A008F0455 /* ArtistModel.swift */,
+			);
+			path = ArtistModel;
+			sourceTree = "<group>";
+		};
+		A94A4C5E1F3D85E1008F0455 /* FireBase CRUD */ = {
+			isa = PBXGroup;
+			children = (
+				A94A4C5F1F3D85FF008F0455 /* FireBaseCRUDVC.swift */,
+			);
+			path = "FireBase CRUD";
 			sourceTree = "<group>";
 		};
 		A95114A41F25E7AA002648C6 /* Dashboard */ = {
@@ -910,6 +940,7 @@
 				A90029B91EFA7A5D00D50988 /* UITextField+customeTextField.swift in Sources */,
 				A9DDF2061F0CADDD00999D70 /* UIViewController+StoryboardIdentifier.swift in Sources */,
 				A90029B41EFA786E00D50988 /* Utility.swift in Sources */,
+				A94A4C601F3D85FF008F0455 /* FireBaseCRUDVC.swift in Sources */,
 				A98DF4E71EFBA4200037C063 /* Webservice.swift in Sources */,
 				A9E562841EFD13340055CE05 /* UtilityUserDefault.swift in Sources */,
 				A951A96F1F149F4B00706FE6 /* UserProfileImageCell.swift in Sources */,
@@ -923,6 +954,7 @@
 				A90029B81EFA7A5D00D50988 /* NICAlertController.swift in Sources */,
 				A98DF4E51EFB95AC0037C063 /* Constant.swift in Sources */,
 				A947A2D51F0E00F40073A431 /* LeftDrawerVC.swift in Sources */,
+				A94A4C5D1F3D836A008F0455 /* ArtistModel.swift in Sources */,
 				A900297B1EFA713D00D50988 /* ViewController.swift in Sources */,
 				A928FA361F17500600133A2F /* UIImageExtention.swift in Sources */,
 				A947A2DC1F0E15AA0073A431 /* GGStatsVC.swift in Sources */,

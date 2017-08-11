@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GG Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPU-dI-R2T">
-                                        <rect key="frame" x="150" y="26" width="76" height="22"/>
+                                        <rect key="frame" x="149.5" y="26" width="76" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -230,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="824.79999999999995" y="116.49175412293854"/>
         </scene>
-        <!--View Controller-->
+        <!--Fire BaseCRUDVC-->
         <scene sceneID="vbW-Oy-Pdt">
             <objects>
-                <viewController id="Sed-kh-iHj" sceneMemberID="viewController">
+                <viewController id="Sed-kh-iHj" customClass="FireBaseCRUDVC" customModule="Global_Garner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jj0-o8-yT0"/>
                         <viewControllerLayoutGuide type="bottom" id="SE8-ef-8eZ"/>
@@ -241,9 +241,86 @@
                     <view key="view" contentMode="scaleToFill" id="eZ3-7R-zUP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNP-Hd-AKz">
+                                <rect key="frame" x="16" y="127" width="337" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Artist"/>
+                                <connections>
+                                    <action selector="buttonAddArtist:" destination="Sed-kh-iHj" eventType="touchUpInside" id="ISr-zB-YVd"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nTe-RL-QwL">
+                                <rect key="frame" x="16" y="24" width="337" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist genre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPO-BX-KMJ">
+                                <rect key="frame" x="16" y="69" width="337" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzA-Gz-IEv">
+                                <rect key="frame" x="16" y="165" width="337" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ety-4q-4eY">
+                                <rect key="frame" x="16" y="194" width="343" height="449"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ViewControllerTableViewCell" rowHeight="65" id="Aup-cC-trD" customClass="ViewControllerTableViewCell" customModule="Global_Garner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aup-cC-trD" id="Gpq-fp-gv5">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="64.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jT-tm-g1o">
+                                                    <rect key="frame" x="17" y="0.0" width="318" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6D1-s1-Ekr">
+                                                    <rect key="frame" x="17" y="22" width="318" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelGenre" destination="6D1-s1-Ekr" id="YXJ-Vo-UWm"/>
+                                            <outlet property="labelName" destination="5jT-tm-g1o" id="Igf-sg-d28"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Sed-kh-iHj" id="wtd-Rs-pga"/>
+                                    <outlet property="delegate" destination="Sed-kh-iHj" id="P82-Y1-2lx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hc0-P4-fSx"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="labelMessage" destination="dzA-Gz-IEv" id="ORS-8H-agO"/>
+                        <outlet property="tableViewArtists" destination="ety-4q-4eY" id="BwZ-0w-f1V"/>
+                        <outlet property="textFieldGenre" destination="mPO-BX-KMJ" id="bF0-u5-d36"/>
+                        <outlet property="textFieldName" destination="nTe-RL-QwL" id="occ-se-cj8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmg-vt-kIX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -570,7 +647,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="ic_Tab_1" selectedImage="ic_Tab_Selected1" id="PjU-ZX-BbD"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pjj-Nh-LQJ">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pjj-Nh-LQJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -590,7 +667,7 @@
                     <tabBarItem key="tabBarItem" title="Cart" image="ic_Tab_2" selectedImage="ic_Tab_Selected2" id="JKm-3B-ywo"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TGM-bc-J4J">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="TGM-bc-J4J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -610,7 +687,7 @@
                     <tabBarItem key="tabBarItem" title="Make MyCart" image="ic_Tab_3" selectedImage="ic_Tab_Selected3" id="XS7-4m-bim"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MYq-XP-DaP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="MYq-XP-DaP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -630,7 +707,7 @@
                     <tabBarItem key="tabBarItem" title="Notifications" image="ic_Tab_4" selectedImage="ic_Tab_Selected4" id="dnI-NN-M4g"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ndk-5a-vCL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Ndk-5a-vCL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -650,7 +727,7 @@
                     <tabBarItem key="tabBarItem" title="My Favourite" image="ic_Tab_5" selectedImage="ic_Tab_Selected5" id="0L4-E1-hgt"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BfG-sO-g4L">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BfG-sO-g4L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

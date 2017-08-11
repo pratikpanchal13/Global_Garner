@@ -19,7 +19,7 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     @IBOutlet var btnProfile: UIButton!
     var imagePicker = UIImagePickerController()
 
-    var arryData = [String]()
+    var arryData = [NSMutableDictionary]()
     
     @IBOutlet var txtdata: UITextField!
     @IBOutlet var consHeight: NSLayoutConstraint!
@@ -49,14 +49,37 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
     
         dataBaseHandel = ref?.child("Comments").observe(.childAdded, with: { (snapshot) in
             
-            let post = snapshot.value as? String
+            let post = snapshot.value as? NSMutableDictionary
+            
+            post?["comment_id"] = snapshot.key
+            
             if let postData = post{
-                self.arryData.append(postData)
+                self.arryData.append(post!)
                 self.tblComments.reloadData()
-                Utility().animateCells(tableView: self.tblComments)
+//                Utility().animateCells(tableView: self.tblComments)
             }
             
         })
+        
+        
+        dataBaseHandel = ref?.child("Comments").observe(.childRemoved, with: { (snapshot) in
+            
+            let post = snapshot.value as? NSMutableDictionary
+            
+            print("Deleted Data",  post?["Comment"])
+            
+            
+            
+            
+//            if let postData = post{
+////                self.arryData.append(post!)
+//                self.tblComments.reloadData()
+//                //                Utility().animateCells(tableView: self.tblComments)
+//            }
+            
+        })
+        
+        
         //********************************************************************************
         
         imagePicker.delegate = self
@@ -173,13 +196,24 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         
             
             //Fire Base Add data
-            self.ref?.child("Comments").childByAutoId().setValue(arrayData)
+//            self.ref?.child("Comments").childByAutoId().setValue(arrayData)
+            
+            let aDicMutChat = NSMutableDictionary()
+            aDicMutChat.setValue(arrayData, forKey: "Comment")
+            aDicMutChat.setValue("Social", forKey: "Type")
+            aDicMutChat.setValue("unread", forKey: "Status")
+
+            self.ref?.child("Comments").childByAutoId().setValue(aDicMutChat) { (snapShot, FIRDatabaseReference) in
+
+
+            }
+            
             
 //            self.arryData.append(arrayData as! String)
 
             
             self.tblComments.reloadData()
-            Utility().animateCells(tableView: self.tblComments)
+//            Utility().animateCells(tableView: self.tblComments)
         }
         
         
@@ -257,11 +291,42 @@ extension HomeVC
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:cellComment = tableView.dequeueReusableCell(withIdentifier: "cellComment") as! cellComment
-        cell.lblComment.text = self.arryData[indexPath.row]
+        
+        let dict = self.arryData[indexPath.row] as NSDictionary
+        
+        cell.lblComment.text = dict["Comment"] as? String
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            print("Deleted is Clicked \(indexPath.row)")
+            
+            let dict = self.arryData[indexPath.row]
+            
+            // delete data from firebase
+            
+            let profile = ref?.child("Comments").child(dict["comment_id"] as! String)
+            
+        
+            if let pr = profile{
+                
+                pr.removeValue(completionBlock: { (error, ref) in
+                    print(error)
+                    print(ref)
+                })
+            
+                
+            }
+
+        }
+    }
 }
 
 
