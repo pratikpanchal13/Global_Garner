@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.0)
+  - Cosmos (11.0.3)
   - Firebase/Core (4.0.4):
     - FirebaseAnalytics (= 4.0.2)
     - FirebaseCore (= 4.0.4)
@@ -57,6 +58,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Cosmos (~> 11.0)
+  - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
   - Material (~> 2.0)
@@ -68,6 +71,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Cosmos: eb506859929f4add2d2aec822a27efb2f718a95d
   Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
   FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
@@ -84,6 +88,6 @@ SPEC CHECKSUMS:
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 395620ac2ea1206470ae1b8bb98cc09af5463497
+PODFILE CHECKSUM: c08f0e5e7c4c088ad025a6382566465aac0a5d60
 
 COCOAPODS: 1.2.0

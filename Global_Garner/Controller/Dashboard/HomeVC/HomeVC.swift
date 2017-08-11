@@ -190,17 +190,18 @@ class HomeVC: UIViewController , UIImagePickerControllerDelegate, UINavigationCo
         
         
         
-        commentVC.passDataWithIndex = { arrayData in
+        commentVC.passDataWithIndex = { dctComment in
 
-            print("Data is \(arrayData)")
+            print("Data is \(dctComment)")
         
+            let dctData = dctComment as! [String : Any]
             
             //Fire Base Add data
 //            self.ref?.child("Comments").childByAutoId().setValue(arrayData)
             
             let aDicMutChat = NSMutableDictionary()
-            aDicMutChat.setValue(arrayData, forKey: "Comment")
-            aDicMutChat.setValue("Social", forKey: "Type")
+            aDicMutChat.setValue(dctData["Comment"], forKey: "Comment")
+            aDicMutChat.setValue(dctData["Ratting"], forKey: "Ratting")
             aDicMutChat.setValue("unread", forKey: "Status")
 
             self.ref?.child("Comments").childByAutoId().setValue(aDicMutChat) { (snapShot, FIRDatabaseReference) in
@@ -320,6 +321,8 @@ extension HomeVC
                 pr.removeValue(completionBlock: { (error, ref) in
                     print(error)
                     print(ref)
+                    self.arryData.remove(at: indexPath.row)
+                    self.tblComments.reloadData()
                 })
             
                 

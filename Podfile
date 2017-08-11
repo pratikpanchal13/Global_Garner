@@ -25,6 +25,8 @@ target 'Global_Garner' do
     pod 'Firebase/Database'    
     pod 'Firebase/Core'
     
+    pod 'Cosmos', '~> 11.0'
+    
 
 #    pod 'Firebase/AdMob'
 

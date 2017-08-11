@@ -7,17 +7,27 @@
 //
 
 import UIKit
+import Cosmos
 
 class CommentVC: UIViewController ,UITextViewDelegate {
 
-    public var passDataWithIndex:( _ arryData : Any)->() = {_ in}
+    public var passDataWithIndex:( _ dctCommentData : Any)->() = {_ in}
 
     @IBOutlet var conHeightTxtViewComment: NSLayoutConstraint!
-    
-
     @IBOutlet var txtviewComment: UITextView!
+    
+    
+    // For Ratting
+    @IBOutlet var viewCosmos: CosmosView!
+    var startRating:Float = 0.0
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setRaetting()  // Fot Setting Ratting
+        
 
         // Do any additional setup after loading the view.
     }
@@ -50,7 +60,14 @@ class CommentVC: UIViewController ,UITextViewDelegate {
             
         }) { (isFinished) in
             //
-            self.passDataWithIndex(self.txtviewComment.text)  // Passing Data Using Blocks to Parent VC
+            
+            
+            var dct  = [String:Any]()
+            dct["Ratting"]  = self.startRating
+            dct["Comment"] = self.txtviewComment.text
+            
+            
+            self.passDataWithIndex(dct)  // Passing Data Using Blocks to Parent VC
 
             self.view.removeFromSuperview()
             self.removeFromParentViewController()
@@ -60,6 +77,46 @@ class CommentVC: UIViewController ,UITextViewDelegate {
 
     }
     
+    func setRaetting()
+    {
+        
+        
+        
+        // Do not change rating when touched
+        // Use if you need just to show the stars without getting user's input
+        viewCosmos.settings.updateOnTouch = true
+        
+        
+        // Show only fully filled stars
+        viewCosmos.settings.fillMode = .half
+        // Other fill modes: .half, .precise
+        
+        
+        // Set image for the filled star
+//        viewCosmos.settings.filledImage  = #imageLiteral(resourceName: "ic_btnStartFill")
+        
+        // Set image for the empty star
+//        viewCosmos.settings.emptyImage = #imageLiteral(resourceName: "ic_btnStart")
+        
+        
+        // Register touch handlers
+        viewCosmos.didFinishTouchingCosmos = { rating in
+        
+            self.startRating = Float(rating)
+            print("Rating is",rating)
+        
+        }
+        
+        viewCosmos.didTouchCosmos  = {rating in
+
+            self.startRating = Float(rating)
+
+            print("Rating is -- ",rating)
+        }
+        
+        
+
+    }
 
     /*
     // MARK: - Navigation
@@ -94,3 +151,7 @@ class CommentVC: UIViewController ,UITextViewDelegate {
     }
 
 }
+
+
+
+
