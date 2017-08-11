@@ -490,13 +490,30 @@
                     <view key="view" contentMode="scaleToFill" id="1AO-iv-pWe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i6I-AH-10E" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="20" y="20" width="335" height="164"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="U0J-zA-KGO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i6I-AH-10E" firstAttribute="top" secondItem="1AO-iv-pWe" secondAttribute="top" constant="20" id="Az8-9r-cqI"/>
+                            <constraint firstAttribute="trailing" secondItem="i6I-AH-10E" secondAttribute="trailing" constant="20" id="N6f-cY-6bd"/>
+                            <constraint firstItem="i6I-AH-10E" firstAttribute="leading" secondItem="1AO-iv-pWe" secondAttribute="leading" constant="20" id="tUq-7B-yfB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="A6g-Mc-yS2"/>
+                    <connections>
+                        <outlet property="slideshow" destination="i6I-AH-10E" id="nOg-Al-uqJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekA-z1-2By" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="2551"/>
+            <point key="canvasLocation" x="925.60000000000002" y="2550.6746626686659"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="B6g-31-URQ">

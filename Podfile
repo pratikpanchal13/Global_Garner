@@ -15,26 +15,29 @@ target 'Global_Garner' do
     pod 'MBProgressHUD', '~> 1.0.0'
     
     pod 'SDWebImage', '~>3.8'
+    
     pod 'SwiftGifOrigin', '~> 1.6.1'
     
     pod 'Material', '~> 2.0'
     
+    # Fot Side Menu
     pod 'MMDrawerController'
 
+
+    # FireBase
     pod 'Firebase/Storage'
     pod 'Firebase/Database'    
     pod 'Firebase/Core'
     
+    
+    # For Star Ratting
     pod 'Cosmos', '~> 11.0'
     
 
-#    pod 'Firebase/AdMob'
+    # Pods For Image Slide Show
+    pod 'ImageSlideshow', '~> 1.3'
 
-#    pod 'FacebookCore'
-#    pod 'FacebookLogin'
-#    pod 'FacebookShare'
-#
-#    pod 'FBAudienceNetwork'
+
 
     target 'Global_GarnerTests' do
         inherit! :search_paths

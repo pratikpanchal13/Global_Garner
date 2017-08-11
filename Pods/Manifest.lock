@@ -29,6 +29,9 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
+  - ImageSlideshow (1.3.2):
+    - ImageSlideshow/Core (= 1.3.2)
+  - ImageSlideshow/Core (1.3.2)
   - Material (2.6.3):
     - Material/Core (= 2.6.3)
   - Material/Core (2.6.3)
@@ -62,6 +65,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - ImageSlideshow (~> 1.3)
   - Material (~> 2.0)
   - MBProgressHUD (~> 1.0.0)
   - MMDrawerController
@@ -80,6 +84,7 @@ SPEC CHECKSUMS:
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
+  ImageSlideshow: a68a76fc618ebd2b7481ce355ad67d7097203976
   Material: af607a7ec0e9978ef85cf189a3d8ceeeb650400f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
@@ -88,6 +93,6 @@ SPEC CHECKSUMS:
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: c08f0e5e7c4c088ad025a6382566465aac0a5d60
+PODFILE CHECKSUM: 37c0ad5bd98e5b3e15787aea46163ef9984e9fcd
 
 COCOAPODS: 1.2.0
