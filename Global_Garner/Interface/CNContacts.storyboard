@@ -85,6 +85,9 @@
                                                     <constraint firstAttribute="width" secondItem="7jl-7T-s1B" secondAttribute="height" multiplier="1:1" id="ftE-F2-3mO"/>
                                                 </constraints>
                                                 <state key="normal" image="ic_close_Black"/>
+                                                <connections>
+                                                    <action selector="btnCancelClicked:" destination="2rj-hb-5Rx" eventType="touchUpInside" id="B0g-1b-6DF"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,7 +127,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SCA-Z6-eZ9" id="ShX-Ky-iWA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qHn-fK-h9h">

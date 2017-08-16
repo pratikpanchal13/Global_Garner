@@ -128,6 +128,12 @@ class ContactsViewController: UIViewController ,UITableViewDelegate,UITableViewD
         self.present(cnPicker, animated: true, completion: nil)
     }
 
+    @IBAction func btnCancelClicked(_ sender: Any) {
+        self.txtSearch.text = ""
+        btnCancel.isHidden = true;
+        didChangeText(textField: self.txtSearch)
+
+    }
     
     //MARK:- CNContactPickerDelegate Method
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
