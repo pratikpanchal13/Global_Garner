@@ -105,4 +105,14 @@ extension UITextField {
     }
     
     
+    
+    var count:Int {
+        get{
+            return self.text?.characters.count ?? 0
+        }
+        
+    }
+
+    
+    
 }
