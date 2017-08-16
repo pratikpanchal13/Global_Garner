@@ -45,6 +45,11 @@
 		A951A96F1F149F4B00706FE6 /* UserProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A951A96E1F149F4B00706FE6 /* UserProfileImageCell.swift */; };
 		A955BC511F273CFA00B7AA4C /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A955BC501F273CFA00B7AA4C /* CommentVC.swift */; };
 		A955BC531F2752A000B7AA4C /* cellComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A955BC521F2752A000B7AA4C /* cellComment.swift */; };
+		A95B0A2F1F3F0FF30081EA48 /* ServiceAccount.json in Resources */ = {isa = PBXBuildFile; fileRef = A95B0A2E1F3F0FF30081EA48 /* ServiceAccount.json */; };
+		A96999841F441EA100EF08DE /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96999831F441EA100EF08DE /* ContactsViewController.swift */; };
+		A96999861F44205000EF08DE /* CNContacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96999851F44205000EF08DE /* CNContacts.storyboard */; };
+		A96999881F44224C00EF08DE /* ContactEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96999871F44224C00EF08DE /* ContactEntry.swift */; };
+		A969998A1F44253900EF08DE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96999891F44253900EF08DE /* StringExtension.swift */; };
 		A98DF4E51EFB95AC0037C063 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DF4E41EFB95AC0037C063 /* Constant.swift */; };
 		A98DF4E71EFBA4200037C063 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98DF4E61EFBA4200037C063 /* Webservice.swift */; };
 		A9A0B9BF1F0CFF9B000E673F /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9A0B9BE1F0CFF9B000E673F /* Registration.storyboard */; };
@@ -131,6 +136,11 @@
 		A951A96E1F149F4B00706FE6 /* UserProfileImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileImageCell.swift; sourceTree = "<group>"; };
 		A955BC501F273CFA00B7AA4C /* CommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		A955BC521F2752A000B7AA4C /* cellComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellComment.swift; sourceTree = "<group>"; };
+		A95B0A2E1F3F0FF30081EA48 /* ServiceAccount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ServiceAccount.json; sourceTree = "<group>"; };
+		A96999831F441EA100EF08DE /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		A96999851F44205000EF08DE /* CNContacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CNContacts.storyboard; sourceTree = "<group>"; };
+		A96999871F44224C00EF08DE /* ContactEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactEntry.swift; sourceTree = "<group>"; };
+		A96999891F44253900EF08DE /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A98DF4E41EFB95AC0037C063 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		A98DF4E61EFBA4200037C063 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		A9A0B9BE1F0CFF9B000E673F /* Registration.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
@@ -228,6 +238,7 @@
 				A90029811EFA713D00D50988 /* LaunchScreen.storyboard */,
 				A90029841EFA713D00D50988 /* Info.plist */,
 				A91F0A861F3AFE6A00838F0E /* GoogleService-Info.plist */,
+				A95B0A2E1F3F0FF30081EA48 /* ServiceAccount.json */,
 			);
 			path = Global_Garner;
 			sourceTree = "<group>";
@@ -253,6 +264,7 @@
 		A90029A61EFA723200D50988 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A969997F1F441D7F00EF08DE /* CNContackBook */,
 				A94A4C5E1F3D85E1008F0455 /* FireBase CRUD */,
 				A95114A41F25E7AA002648C6 /* Dashboard */,
 				A951A9571F149BCA00706FE6 /* ProfileModule */,
@@ -322,6 +334,7 @@
 				A947A2D61F0E010A0073A431 /* SideMenu.storyboard */,
 				A947A2D81F0E13CE0073A431 /* Dashboard.storyboard */,
 				A951A95B1F149D0700706FE6 /* Profile.storyboard */,
+				A96999851F44205000EF08DE /* CNContacts.storyboard */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -526,6 +539,39 @@
 			path = CommentVC;
 			sourceTree = "<group>";
 		};
+		A969997F1F441D7F00EF08DE /* CNContackBook */ = {
+			isa = PBXGroup;
+			children = (
+				A96999801F441D7F00EF08DE /* Controller */,
+				A96999811F441D7F00EF08DE /* Model */,
+				A96999821F441D7F00EF08DE /* View */,
+			);
+			path = CNContackBook;
+			sourceTree = "<group>";
+		};
+		A96999801F441D7F00EF08DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A96999831F441EA100EF08DE /* ContactsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A96999811F441D7F00EF08DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A96999871F44224C00EF08DE /* ContactEntry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A96999821F441D7F00EF08DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A98DF4DF1EFB94460037C063 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +586,7 @@
 				A9DDF2001F0CADDD00999D70 /* PKStoryboard.swift */,
 				A9DDF2011F0CADDD00999D70 /* Protocol */,
 				A9DDF2031F0CADDD00999D70 /* UIViewController+StoryboardIdentifier.swift */,
+				A96999891F44253900EF08DE /* StringExtension.swift */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -650,6 +697,7 @@
 				A90029731EFA713D00D50988 /* Resources */,
 				E0B55A0AE417B8A03B3DB2E8 /* [CP] Embed Pods Frameworks */,
 				7ABD2C4A88D037AABBDBD01F /* [CP] Copy Pods Resources */,
+				A95B0A291F3F04250081EA48 /* Uplod Symbol to crash Report */,
 			);
 			buildRules = (
 			);
@@ -758,12 +806,14 @@
 				A9F656AA1F0A21870087C9C1 /* Home.storyboard in Resources */,
 				A947A2D91F0E13CE0073A431 /* Dashboard.storyboard in Resources */,
 				A9ECCE191F0BA07500AB1B1B /* loading@2x.gif in Resources */,
+				A95B0A2F1F3F0FF30081EA48 /* ServiceAccount.json in Resources */,
 				A90029831EFA713D00D50988 /* LaunchScreen.storyboard in Resources */,
 				A9DDF2141F0CF53100999D70 /* OpenSans-Light.ttf in Resources */,
 				A947A2D71F0E010A0073A431 /* SideMenu.storyboard in Resources */,
 				A9ECCE1A1F0BA07500AB1B1B /* loading@3x.gif in Resources */,
 				A90029801EFA713D00D50988 /* Assets.xcassets in Resources */,
 				A900297E1EFA713D00D50988 /* Main.storyboard in Resources */,
+				A96999861F44205000EF08DE /* CNContacts.storyboard in Resources */,
 				A91F0A871F3AFE6A00838F0E /* GoogleService-Info.plist in Resources */,
 				A9A0B9BF1F0CFF9B000E673F /* Registration.storyboard in Resources */,
 				A9DDF2121F0CF53100999D70 /* OpenSans-Bold.ttf in Resources */,
@@ -896,6 +946,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Global_GarnerTests/Pods-Global_GarnerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A95B0A291F3F04250081EA48 /* Uplod Symbol to crash Report */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Uplod Symbol to crash Report";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:602263483619:ios:46910db4552119e0\n\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym-util.bash \"${PROJECT_DIR}/ServiceAccount.json\"";
+		};
 		C3324604DE4D59D872936620 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -938,6 +1002,7 @@
 				A95114B31F25E844002648C6 /* MyFavouriteVC.swift in Sources */,
 				A9F656BE1F0A71730087C9C1 /* Body.swift in Sources */,
 				A90029B91EFA7A5D00D50988 /* UITextField+customeTextField.swift in Sources */,
+				A96999841F441EA100EF08DE /* ContactsViewController.swift in Sources */,
 				A9DDF2061F0CADDD00999D70 /* UIViewController+StoryboardIdentifier.swift in Sources */,
 				A90029B41EFA786E00D50988 /* Utility.swift in Sources */,
 				A94A4C601F3D85FF008F0455 /* FireBaseCRUDVC.swift in Sources */,
@@ -948,6 +1013,8 @@
 				A955BC531F2752A000B7AA4C /* cellComment.swift in Sources */,
 				A951A96D1F149F3E00706FE6 /* UserProfileVerifiedCell.swift in Sources */,
 				A95114AD1F25E81B002648C6 /* CartVC.swift in Sources */,
+				A969998A1F44253900EF08DE /* StringExtension.swift in Sources */,
+				A96999881F44224C00EF08DE /* ContactEntry.swift in Sources */,
 				A95114B11F25E835002648C6 /* NotificationsVC.swift in Sources */,
 				A951A95F1F149D5200706FE6 /* ProfileVC.swift in Sources */,
 				A951A9621F149D8400706FE6 /* EditProfileVC.swift in Sources */,

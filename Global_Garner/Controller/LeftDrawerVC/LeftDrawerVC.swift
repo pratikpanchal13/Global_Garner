@@ -18,7 +18,7 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        aryMenuList = ["Bill Uploads", "Vendor Referrals", "User Referrals", "UPV Cashback", "UPV Orders", "Make MyCart History", "Manage Address", "Wallet", "GG Stats", "Credits", "Know Us", "Contact Us", "Terms and Conditions", "Privacy Policy", "Logout"]
+        aryMenuList = ["Bill Uploads", "Vendor Referrals", "User Referrals", "UPV Cashback", "UPV Orders", "Make MyCart History", "Manage Address", "Wallet", "GG Stats", "Credits", "Know Us", "Contact Us", "Terms and Conditions", "Privacy Policy", "Logout" ,"Conatcts"]
 
         lblUserName.text =  AppDelegate().appDelegate().userModel?.body?.username
         
@@ -62,7 +62,7 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyboardDashBoard = UIStoryboard(name: "Dashboard", bundle: nil)
+        var storyboardDashBoard = UIStoryboard(name: "Dashboard", bundle: nil)
         var aIdentifire = ""
         switch indexPath.row {
         case 0:
@@ -82,6 +82,10 @@ class LeftDrawerVC: UIViewController , UITableViewDelegate,UITableViewDataSource
 //            let centerVC = storyboardDashBoard.instantiateViewController(withIdentifier: aIdentifire)
 //            self.mm_drawerController.setCenterView(centerVC, withCloseAnimation: true, completion: nil)
             break
+        
+        case 15 :
+                storyboardDashBoard = UIStoryboard(name: "CNContacts", bundle: nil)
+                aIdentifire = "ContactsViewController"
         default:
             self.navigationController?.popViewController(animated: true)
             return

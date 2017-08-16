@@ -12,7 +12,6 @@
         <!--View Controller-->
         <scene sceneID="KE7-gl-aYH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GTu-OS-EBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iEb-zO-cUG" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xUD-o5-NnP"/>
@@ -122,6 +121,7 @@
                         <outlet property="view2" destination="hDN-cw-4vL" id="M9R-1T-XhD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTu-OS-EBn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="839.20000000000005" y="200.14992503748127"/>
         </scene>

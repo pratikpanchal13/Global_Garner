@@ -102,87 +102,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Global_Garner/Controller/Dashboard/HomeVC/HomeVC.swift"
-            timestampString = "524060897.304953"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Global_Garner/Controller/Dashboard/HomeVC/HomeVC.swift"
-            timestampString = "524061184.305526"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Global_Garner/Controller/Dashboard/HomeVC/HomeVC.swift"
-            timestampString = "524061182.833322"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Global_Garner.HomeVC.viewDidLoad () -&gt; ()"
-                  moduleName = "Global_Garner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/DATA/Pratik/Project/Global%20Garner/GG%20BACK%20UP/Global_Garner/Global_Garner/Controller/Dashboard/HomeVC/HomeVC.swift"
-                  timestampString = "524138251.48925"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "837">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Global_Garner.HomeVC.(viewDidLoad () -&gt; ()).(closure #2)"
-                  moduleName = "Global_Garner"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/DATA/Pratik/Project/Global%20Garner/GG%20BACK%20UP/Global_Garner/Global_Garner/Controller/Dashboard/HomeVC/HomeVC.swift"
-                  timestampString = "524138251.491679"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "15">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Global_Garner/Controller/Dashboard/HomeVC/HomeVC.swift"
@@ -198,7 +118,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Global_Garner/Controller/Dashboard/CommentVC/CommentVC.swift"

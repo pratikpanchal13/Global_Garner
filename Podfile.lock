@@ -4,6 +4,9 @@ PODS:
   - Firebase/Core (4.0.4):
     - FirebaseAnalytics (= 4.0.2)
     - FirebaseCore (= 4.0.4)
+  - Firebase/Crash (4.0.4):
+    - Firebase/Core
+    - FirebaseCrash (= 2.0.0)
   - Firebase/Database (4.0.4):
     - Firebase/Core
     - FirebaseDatabase (= 4.0.0)
@@ -17,6 +20,12 @@ PODS:
   - FirebaseCore (4.0.4):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
+  - FirebaseCrash (2.0.0):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - Protobuf (~> 3.1)
   - FirebaseDatabase (4.0.0):
     - FirebaseAnalytics (~> 4.0)
   - FirebaseInstanceID (2.0.0):
@@ -26,6 +35,8 @@ PODS:
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/Logger (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GTMSessionFetcher/Core (1.1.11)
@@ -53,6 +64,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Protobuf (3.3.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -63,6 +75,7 @@ DEPENDENCIES:
   - Alamofire
   - Cosmos (~> 11.0)
   - Firebase/Core
+  - Firebase/Crash
   - Firebase/Database
   - Firebase/Storage
   - ImageSlideshow (~> 1.3)
@@ -79,6 +92,7 @@ SPEC CHECKSUMS:
   Firebase: 1492bf04e1b73a7353b4fb2cf5a20bac9692f341
   FirebaseAnalytics: ad41720e3e67fc63fbe3d2948d3e26932a8de311
   FirebaseCore: cfc042628ef9f20debe09c0eb683135fcd404cb4
+  FirebaseCrash: 600ec2cbd8e10c3064a42de2c6ee7687bd02a076
   FirebaseDatabase: d829b3a8c3e2ac7a16773c5df226966b0805dfc2
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   FirebaseStorage: 8110a1ed2034c8fbfd83890d2acc9cdbbd99afec
@@ -89,10 +103,11 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 37c0ad5bd98e5b3e15787aea46163ef9984e9fcd
+PODFILE CHECKSUM: 1355e72a0e45f04519556dc3cc188f85111f889d
 
 COCOAPODS: 1.2.0

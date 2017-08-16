@@ -45,7 +45,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GG Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPU-dI-R2T">
-                                        <rect key="frame" x="149.5" y="26" width="76" height="22"/>
+                                        <rect key="frame" x="150" y="26" width="76" height="22"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -280,7 +280,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aup-cC-trD" id="Gpq-fp-gv5">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jT-tm-g1o">
@@ -635,7 +635,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fH7-uO-qe7" id="Rnt-XE-nih">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSg-iW-F7Y">

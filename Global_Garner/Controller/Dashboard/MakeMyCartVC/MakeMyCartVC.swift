@@ -20,10 +20,13 @@ class MakeMyCartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //fireBaseError() // FIrebase Crash Analytics
+        
+        
         // Do any additional setup after loading the view.
         
         slideshow.backgroundColor = UIColor.white
-        slideshow.slideshowInterval = 1.0
+        slideshow.slideshowInterval = 2.0
         slideshow.pageControlPosition = PageControlPosition.underScrollView
         slideshow.pageControl.currentPageIndicatorTintColor = UIColor.blue
         slideshow.pageControl.pageIndicatorTintColor = UIColor.red
@@ -57,6 +60,12 @@ class MakeMyCartVC: UIViewController {
     }
     
     
+//    func fireBaseError()
+//    {
+//                assert(false)
+// 
+//    }
+    
     func didTap() {
         
         switch pageIndex {
@@ -80,16 +89,6 @@ class MakeMyCartVC: UIViewController {
 //        // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
 //        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

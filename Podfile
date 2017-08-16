@@ -29,6 +29,8 @@ target 'Global_Garner' do
     pod 'Firebase/Database'    
     pod 'Firebase/Core'
     
+    # Fire Base Crashlytics
+    pod 'Firebase/Crash'
     
     # For Star Ratting
     pod 'Cosmos', '~> 11.0'
